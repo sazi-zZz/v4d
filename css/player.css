@@ -1,0 +1,235 @@
+/* ===================================================
+   Player Profile page styles
+   =================================================== */
+
+.profile-hero {
+  margin-top: 70px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.profile-cover {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.profile-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-cover-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-surface), #222);
+}
+
+.profile-cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(10,10,10,0.8) 0%, transparent 100%);
+}
+
+.profile-info-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  padding-bottom: 24px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+}
+
+.profile-avatar-area { flex-shrink: 0; }
+
+.profile-avatar {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid;
+  display: block;
+}
+
+.profile-avatar-ph {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  background: var(--color-surface2);
+  border: 4px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.profile-meta {
+  flex: 1;
+  min-width: 180px;
+}
+
+.profile-name {
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.profile-rank-badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.profile-clan-tag {
+  font-family: var(--font-techy);
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  background: rgba(245,166,35,0.12);
+  border: 1px solid rgba(245,166,35,0.3);
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+}
+
+/* Layout */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Sidebar */
+.profile-sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+.profile-stats-card,
+.profile-style-card {
+  padding: 22px;
+}
+
+.profile-stats-card h3,
+.profile-style-card h3,
+.profile-bio-card h3 {
+  font-size: 1rem;
+  font-family: var(--font-techy);
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
+.profile-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.9rem;
+}
+.profile-stat-row:last-of-type { border-bottom: none; }
+.profile-stat-row span { color: var(--color-muted); }
+.profile-stat-row strong { font-weight: 600; }
+
+.win-rate-display {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.win-rate-display .win-rate-bar-wrap {
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+  display: block;
+  padding: 0;
+}
+
+.win-rate-display .win-rate-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: 3px;
+}
+
+.color-preview-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.color-dot {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.1);
+  cursor: default;
+  title: '';
+}
+
+/* Main column */
+.profile-main-col { display: flex; flex-direction: column; gap: 24px; }
+
+.profile-bio-card {
+  padding: 24px;
+}
+
+.profile-bio-text {
+  color: rgba(255,255,255,0.8);
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+/* Tournament history */
+.profile-tournaments { }
+
+.profile-t-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-t-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+.profile-t-row:hover { transform: translateX(4px); border-color: rgba(245,166,35,0.4); }
+
+.profile-t-thumb {
+  width: 60px; height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.profile-t-thumb-ph {
+  width: 60px; height: 40px;
+  background: var(--color-surface2);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.profile-t-info { flex: 1; }
+.profile-t-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 3px; }
+.profile-t-stats { font-size: 0.82rem; }
+
+.profile-t-arrow { color: var(--color-muted); }
+
+@media (max-width: 900px) {
+  .profile-layout { grid-template-columns: 1fr; }
+  .profile-sidebar { order: 2; }
+  .profile-main-col { order: 1; }
+}
+
+@media (max-width: 600px) {
+  .profile-cover { height: 160px; }
+  .profile-avatar, .profile-avatar-ph { width: 80px; height: 80px; font-size: 1.8rem; }
+  .profile-info-bar { margin-top: -30px; }
+}

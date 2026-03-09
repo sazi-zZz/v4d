@@ -1,0 +1,460 @@
+/* ===================================================
+   Leaderboard page styles
+   =================================================== */
+
+/* ----- Podium ----- */
+.podium-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto 48px;
+  max-width: 700px;
+  padding: 0 16px;
+}
+
+.podium-spot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.podium-crown {
+  font-size: 1.8rem;
+  animation: crownFloat 2.5s ease-in-out infinite;
+}
+@keyframes crownFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+.podium-avatar-wrap { position: relative; }
+
+.podium-avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid;
+}
+
+.podium-avatar-ph {
+  border-radius: 50%;
+  background: var(--color-surface2);
+  border: 3px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.podium-1st .podium-avatar,
+.podium-1st .podium-avatar-ph { width: 90px; height: 90px; font-size: 2rem; }
+.podium-2nd .podium-avatar,
+.podium-2nd .podium-avatar-ph,
+.podium-3rd .podium-avatar,
+.podium-3rd .podium-avatar-ph { width: 70px; height: 70px; }
+
+.podium-avatar-lg { width: 90px !important; height: 90px !important; }
+
+.podium-medal {
+  position: absolute;
+  bottom: -4px; right: -4px;
+  font-size: 1.2rem;
+}
+
+.podium-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: center;
+  max-width: 120px;
+  display: block;
+}
+
+.podium-wins {
+  font-family: var(--font-techy);
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}
+.podium-wins small { font-size: 0.7rem; color: var(--color-muted); }
+
+.podium-block {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(135deg, var(--color-surface), var(--color-surface2));
+  border: 1px solid var(--color-border);
+}
+.podium-block-1 { height: 80px; border-color: rgba(255,215,0,0.4); background: linear-gradient(135deg, rgba(255,215,0,0.12), rgba(255,215,0,0.05)); }
+.podium-block-2 { height: 55px; border-color: rgba(192,192,192,0.3); }
+.podium-block-3 { height: 40px; border-color: rgba(205,127,50,0.3); }
+
+/* ----- Table ----- */
+.lb-table-wrap {
+  overflow: hidden;
+  padding: 0;
+}
+
+.lb-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lb-table thead th {
+  padding: 16px 20px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-muted);
+  font-weight: 600;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.lb-table tbody td {
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+.lb-row:last-child td { border-bottom: none; }
+
+.lb-row:hover { background: rgba(245,166,35,0.04); }
+.lb-row-top   { background: rgba(245,166,35,0.03); }
+
+.lb-player-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lb-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.lb-avatar-ph {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--color-surface2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.lb-player-name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.lb-wins {
+  font-family: var(--font-techy);
+  font-size: 1rem;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.lb-games { color: var(--color-muted); }
+
+/* ----- Win Rate Bar ----- */
+.win-rate-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.win-rate-bar-wrap > div {
+  height: 6px;
+  width: 100px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* inner bar */
+.win-rate-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: 3px;
+  transition: width 1s ease;
+}
+
+.win-rate-bar-wrap > span {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+/* ----- Empty ----- */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+.empty-icon { font-size: 3rem; margin-bottom: 16px; }
+
+/* ----- Search bar ----- */
+.lb-search-wrap { margin-bottom: 20px; }
+
+.lb-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 50px;
+  padding: 0 16px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.lb-search-box:focus-within {
+  border-color: rgba(245,166,35,0.6);
+  box-shadow: 0 4px 24px rgba(245,166,35,0.15), 0 0 0 3px rgba(245,166,35,0.1);
+}
+
+.lb-search-icon { color: var(--color-muted); flex-shrink: 0; pointer-events: none; transition: color 0.2s; }
+.lb-search-box:focus-within .lb-search-icon { color: var(--color-primary); }
+
+.lb-search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 13px 10px;
+  color: var(--color-text);
+  font-family: var(--font-base);
+  font-size: 0.95rem;
+}
+.lb-search-input::placeholder { color: rgba(255,255,255,0.3); }
+
+.lb-search-clear {
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  padding: 4px 6px;
+  cursor: pointer;
+  border-radius: 50%;
+  line-height: 1;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.lb-search-clear:hover { background: rgba(255,255,255,0.08); color: var(--color-text); }
+
+.lb-no-results { text-align: center; color: var(--color-muted); font-size: 0.9rem; margin-top: 12px; }
+.lb-no-results span { color: var(--color-primary); }
+
+/* Hidden rows/cards during search */
+.lb-row-hidden  { display: none !important; }
+.lb-card-hidden { display: none !important; }
+
+/* ===================================================
+   Show/hide: desktop table vs mobile cards
+   =================================================== */
+.lb-mobile  { display: none !important; }
+.lb-desktop { display: block; }
+
+@media (max-width: 768px) {
+  /* Shrink desktop table a bit on tablet */
+  .lb-table thead th { padding: 10px 12px; font-size: 0.68rem; }
+  .lb-table tbody td { padding: 10px 12px; font-size: 0.88rem; }
+  .lb-avatar, .lb-avatar-ph { width: 32px; height: 32px; }
+  .win-rate-bar-wrap > div { width: 72px; }
+  .win-rate-bar-wrap > span { font-size: 0.78rem; }
+
+  /* Podium tablet */
+  .podium-wrapper { gap: 10px; padding: 0 12px; margin-bottom: 24px; max-width: 100%; }
+  .podium-1st .podium-avatar,
+  .podium-1st .podium-avatar-ph { width: 70px; height: 70px; }
+  .podium-avatar-lg             { width: 70px !important; height: 70px !important; }
+  .podium-2nd .podium-avatar,
+  .podium-2nd .podium-avatar-ph,
+  .podium-3rd .podium-avatar,
+  .podium-3rd .podium-avatar-ph { width: 54px; height: 54px; }
+  .podium-name  { font-size: 0.78rem; }
+  .podium-block-1 { height: 58px; }
+  .podium-block-2 { height: 40px; }
+  .podium-block-3 { height: 28px; }
+}
+
+@media (max-width: 520px) {
+  /* Switch to mobile card view */
+  .lb-desktop { display: none !important; }
+  .lb-mobile  { display: flex !important; flex-direction: column; }
+
+  /* Podium: very compact */
+  .podium-wrapper { gap: 6px; padding: 0 6px; margin-bottom: 16px; }
+  .podium-block-1 { height: 40px; }
+  .podium-block-2 { height: 28px; }
+  .podium-block-3 { height: 18px; }
+  .podium-1st .podium-avatar,
+  .podium-1st .podium-avatar-ph { width: 54px; height: 54px; font-size: 1.2rem; }
+  .podium-avatar-lg             { width: 54px !important; height: 54px !important; }
+  .podium-2nd .podium-avatar,
+  .podium-2nd .podium-avatar-ph,
+  .podium-3rd .podium-avatar,
+  .podium-3rd .podium-avatar-ph { width: 42px; height: 42px; }
+  .podium-name  { font-size: 0.64rem; max-width: 68px; }
+  .podium-wins  { font-size: 0.72rem; }
+  .podium-crown { font-size: 0.95rem; }
+  .podium-medal { font-size: 0.82rem; }
+}
+
+/* ===================================================
+   Mobile card list styles
+   =================================================== */
+.lb-mobile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lb-mobile-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gold left accent for top 3 */
+.lb-mobile-card-top {
+  border-color: rgba(245,166,35,0.3);
+  background: linear-gradient(135deg, rgba(245,166,35,0.05) 0%, var(--color-surface) 60%);
+}
+
+.lb-mobile-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: transparent;
+  border-radius: 0 2px 2px 0;
+  transition: background 0.25s;
+}
+.lb-mobile-card-top::before {
+  background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+}
+
+.lb-mobile-card:hover {
+  border-color: rgba(245,166,35,0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* Left column: rank badge + avatar stacked */
+.lb-mc-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.lb-mc-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.lb-mc-avatar-ph {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-surface2);
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+/* Right column: name + stats */
+.lb-mc-right {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lb-mc-name {
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+/* Stat strip */
+.lb-mc-stats {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.lb-mc-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.lb-mc-stat-val {
+  font-family: var(--font-techy);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.lb-mc-stat-lbl {
+  font-size: 0.58rem;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.lb-mc-sep {
+  color: rgba(255,255,255,0.15);
+  font-size: 0.75rem;
+  align-self: center;
+}
+
+/* Win-rate bar */
+.lb-mc-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.lb-mc-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: 2px;
+  transition: width 1s ease;
+}
+
+
+
+
