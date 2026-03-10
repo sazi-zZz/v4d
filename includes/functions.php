@@ -69,3 +69,17 @@ function require_admin(): void {
         redirect('/v4d/admin/login.php');
     }
 }
+
+function is_player(): bool {
+    return !empty($_SESSION['player_id']);
+}
+
+function current_player_id(): ?int {
+    return $_SESSION['player_id'] ?? null;
+}
+
+function require_player(): void {
+    if (!is_player()) {
+        redirect('/v4d/auth/player_login.php');
+    }
+}

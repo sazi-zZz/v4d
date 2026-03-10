@@ -8,6 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') redirect('/v4d/admin/players.php');
 
 $id         = (int)($_POST['id'] ?? 0);
 $name       = trim($_POST['name'] ?? '');
+$username   = trim($_POST['username'] ?? '') ?: null;
+$password   = trim($_POST['password'] ?? '');
 $bio        = trim($_POST['bio'] ?? '');
 $font_style = trim($_POST['font_style'] ?? 'modern');
 $card_color = trim($_POST['card_color'] ?? '#1a1a1a');
@@ -19,6 +21,25 @@ $total_games  = max(0, (int)($_POST['total_games'] ?? 0));
 if (!$name) {
     $_SESSION['flash'] = ['type'=>'error','msg'=>'Player name is required.'];
     redirect('/v4d/admin/players.php?action=' . ($id ? 'edit&id=' . $id : 'add'));
+}
+
+if (!$username) {
+    $_SESSION['flash'] = ['type'=>'error','msg'=>'Username is required.'];
+    redirect('/v4d/admin/players.php?action=' . ($id ? 'edit&id=' . $id : 'add'));
+}
+
+if (!$password) {
+    $_SESSION['flash'] = ['type'=>'error','msg'=>'Password is required.'];
+    redirect('/v4d/admin/players.php?action=' . ($id ? 'edit&id=' . $id : 'add'));
+}
+
+if ($username) {
+    $u_check = $pdo->prepare("SELECT id FROM players WHERE username = ? AND id != ?");
+    $u_check->execute([$username, $id]);
+    if ($u_check->fetch()) {
+        $_SESSION['flash'] = ['type'=>'error','msg'=>'Username is already taken.'];
+        redirect('/v4d/admin/players.php?action=' . ($id ? 'edit&id=' . $id : 'add'));
+    }
 }
 
 // Allowed fonts
@@ -45,19 +66,30 @@ if ($id) {
     if (!$profile_pic && $ex) $profile_pic = $ex['profile_pic'];
     if (!$cover_image && $ex) $cover_image = $ex['cover_image'];
 
-    $stmt = $pdo->prepare(
-        "UPDATE players SET name=?, bio=?, font_style=?, card_color=?, text_color=?, border_color=?,
-         profile_pic=?, cover_image=?, total_wins=?, total_games=? WHERE id=?"
-    );
-    $stmt->execute([$name, $bio, $font_style, $card_color, $text_color, $border_color,
-                    $profile_pic, $cover_image, $total_wins, $total_games, $id]);
+    if ($password) {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $stmt = $pdo->prepare(
+            "UPDATE players SET name=?, username=?, password_hash=?, bio=?, font_style=?, card_color=?, text_color=?, border_color=?,
+             profile_pic=?, cover_image=?, total_wins=?, total_games=? WHERE id=?"
+        );
+        $stmt->execute([$name, $username, $hash, $bio, $font_style, $card_color, $text_color, $border_color,
+                        $profile_pic, $cover_image, $total_wins, $total_games, $id]);
+    } else {
+        $stmt = $pdo->prepare(
+            "UPDATE players SET name=?, username=?, bio=?, font_style=?, card_color=?, text_color=?, border_color=?,
+             profile_pic=?, cover_image=?, total_wins=?, total_games=? WHERE id=?"
+        );
+        $stmt->execute([$name, $username, $bio, $font_style, $card_color, $text_color, $border_color,
+                        $profile_pic, $cover_image, $total_wins, $total_games, $id]);
+    }
     $_SESSION['flash'] = ['type'=>'success','msg'=>"Player \"$name\" updated successfully!"];
 } else {
+    $hash = password_hash($password, PASSWORD_DEFAULT);
     $stmt = $pdo->prepare(
-        "INSERT INTO players (name, bio, font_style, card_color, text_color, border_color,
-         profile_pic, cover_image, total_wins, total_games) VALUES (?,?,?,?,?,?,?,?,?,?)"
+        "INSERT INTO players (name, username, password_hash, bio, font_style, card_color, text_color, border_color,
+         profile_pic, cover_image, total_wins, total_games) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)"
     );
-    $stmt->execute([$name, $bio, $font_style, $card_color, $text_color, $border_color,
+    $stmt->execute([$name, $username, $hash, $bio, $font_style, $card_color, $text_color, $border_color,
                     $profile_pic, $cover_image, $total_wins, $total_games]);
     $_SESSION['flash'] = ['type'=>'success','msg'=>"Player \"$name\" added successfully!"];
 }

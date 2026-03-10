@@ -15,6 +15,15 @@ try {
             PDO::ATTR_EMULATE_PREPARES   => false,
         ]
     );
+    
+    // Auto-migrate columns if they don't exist
+    try {
+        $pdo->exec("ALTER TABLE players ADD COLUMN username VARCHAR(50) UNIQUE DEFAULT NULL");
+    } catch (PDOException $e) {}
+    try {
+        $pdo->exec("ALTER TABLE players ADD COLUMN password_hash VARCHAR(255) DEFAULT NULL");
+    } catch (PDOException $e) {}
+
 } catch (PDOException $e) {
     die(json_encode(['error' => 'Database connection failed: ' . $e->getMessage()]));
 }

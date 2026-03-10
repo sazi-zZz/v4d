@@ -69,7 +69,12 @@ include __DIR__ . '/includes/header.php';
         <span class="profile-clan-tag">v4d Esports</span>
       </div>
     </div>
-    <a href="/v4d/leaderboard.php" class="btn btn-outline btn-sm">← Back</a>
+    <div style="display: flex; gap: 8px;">
+      <?php if (is_player() && current_player_id() === $player['id']): ?>
+        <a href="/v4d/profile_edit.php" class="btn btn-primary btn-sm">Edit Profile ✏️</a>
+      <?php endif; ?>
+      <a href="/v4d/leaderboard.php" class="btn btn-outline btn-sm">← Back</a>
+    </div>
   </div>
 </div>
 

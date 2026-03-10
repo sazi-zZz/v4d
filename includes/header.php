@@ -42,6 +42,12 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
         <li><a href="/v4d/" class="<?= $current_page === 'index' ? 'active' : '' ?>">Home</a></li>
         <li><a href="/v4d/leaderboard.php" class="<?= $current_page === 'leaderboard' ? 'active' : '' ?>">Leaderboard</a></li>
         <li><a href="/v4d/tournaments.php" class="<?= $current_page === 'tournaments' ? 'active' : '' ?>">Tournaments</a></li>
+        <?php if (is_player()): ?>
+          <li><a href="/v4d/player.php?id=<?= current_player_id() ?>" class="<?= ($current_page === 'player' && ($_GET['id'] ?? '') == current_player_id()) ? 'active' : '' ?>">My Profile</a></li>
+          <li><a href="/v4d/auth/player_logout.php" class="text-danger">Logout</a></li>
+        <?php else: ?>
+          <li><a href="/v4d/auth/player_login.php" class="<?= $current_page === 'player_login' ? 'active' : '' ?>">Login</a></li>
+        <?php endif; ?>
       </ul>
 
       <button class="navbar-hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
