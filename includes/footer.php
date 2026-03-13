@@ -5,7 +5,7 @@
     <div class="container">
       <img src="/v4d/css/img/v4d.png" alt="v4d Esports" class="footer-logo">
 
-      <a href="https://discord.gg/v4d" target="_blank" rel="noopener noreferrer" class="footer-discord-btn">
+      <a href="https://discord.gg/Gqm7wYr7X" target="_blank" rel="noopener noreferrer" class="footer-discord-btn">
         <svg width="16" height="12" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M15.245 1.187A14.7 14.7 0 0 0 11.61 0c-.163.295-.354.692-.485 1.007a13.59 13.59 0 0 0-4.25 0A10.63 10.63 0 0 0 6.386 0a14.74 14.74 0 0 0-3.638 1.19C.39 4.573-.24 7.867.075 11.115c1.526 1.147 3.007 1.843 4.463 2.299a11.1 11.1 0 0 0 .954-1.594 9.63 9.63 0 0 1-1.502-.739c.126-.094.249-.192.368-.293 2.894 1.367 6.034 1.367 8.894 0 .12.101.243.199.368.293a9.62 9.62 0 0 1-1.505.74 11.09 11.09 0 0 0 .954 1.593c1.457-.456 2.94-1.152 4.465-2.3.368-3.775-.623-7.037-2.29-9.927ZM6.009 9.097c-.917 0-1.672-.864-1.672-1.924s.737-1.926 1.672-1.926c.934 0 1.688.865 1.672 1.926 0 1.06-.738 1.924-1.672 1.924Zm6.177 0c-.917 0-1.672-.864-1.672-1.924s.737-1.926 1.672-1.926c.934 0 1.688.865 1.672 1.926 0 1.06-.738 1.924-1.672 1.924Z" fill="currentColor"/>
         </svg>
