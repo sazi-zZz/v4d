@@ -18,7 +18,7 @@ if ($action === 'edit' && $edit_id) {
     $s = $pdo->prepare("SELECT * FROM tournaments WHERE id = ?");
     $s->execute([$edit_id]);
     $edit_t = $s->fetch();
-    if (!$edit_t) redirect('/admin/tournaments.php');
+    if (!$edit_t) redirect('tournaments.php');
 
     $ss = $pdo->prepare("SELECT player_id, wins, games FROM tournament_stats WHERE tournament_id = ?");
     $ss->execute([$edit_id]);
@@ -34,9 +34,9 @@ if ($action === 'edit' && $edit_id) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tournaments — v4d Admin</title>
-  <link rel="icon" type="image/png" href="/css/img/v4d.png">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="icon" type="image/png" href="../css/img/v4d.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
   <!-- Quill rich text editor -->
   <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.7/quill.snow.css">
 </head>
@@ -54,7 +54,7 @@ if ($action === 'edit' && $edit_id) {
       <?php if ($action === 'list'): ?>
         <a href="?action=add" class="btn btn-primary btn-sm">➕ Add Tournament</a>
       <?php else: ?>
-        <a href="/admin/tournaments.php" class="btn btn-outline btn-sm">← Back</a>
+        <a href="tournaments.php" class="btn btn-outline btn-sm">← Back</a>
       <?php endif; ?>
     </div>
 
@@ -82,7 +82,7 @@ if ($action === 'edit' && $edit_id) {
           <tr>
             <td>
               <?php if ($t['banner']): ?>
-                <img src="/uploads/banners/<?= sanitize($t['banner']) ?>" class="admin-banner-thumb">
+                <img src="../uploads/banners/<?= sanitize($t['banner']) ?>" class="admin-banner-thumb">
               <?php else: ?>
                 <span class="admin-banner-ph">🏆</span>
               <?php endif; ?>
@@ -102,7 +102,7 @@ if ($action === 'edit' && $edit_id) {
 
     <?php else: ?>
     <!-- Add / Edit Form -->
-    <form class="admin-form" method="POST" action="/api/save_tournament.php" enctype="multipart/form-data" id="tournament-form">
+    <form class="admin-form" method="POST" action="../api/save_tournament.php" enctype="multipart/form-data" id="tournament-form">
       <?php if ($edit_t): ?>
         <input type="hidden" name="id" value="<?= $edit_t['id'] ?>">
       <?php endif; ?>
@@ -116,7 +116,7 @@ if ($action === 'edit' && $edit_id) {
         <div class="form-group">
           <label class="form-label">Banner Image</label>
           <?php if (!empty($edit_t['banner'])): ?>
-            <img src="/uploads/banners/<?= sanitize($edit_t['banner']) ?>" class="upload-preview-cover" id="banner-preview">
+            <img src="../uploads/banners/<?= sanitize($edit_t['banner']) ?>" class="upload-preview-cover" id="banner-preview">
           <?php else: ?>
             <div class="upload-preview-cover-ph" id="banner-preview">No banner set</div>
           <?php endif; ?>
@@ -163,7 +163,7 @@ if ($action === 'edit' && $edit_id) {
         <button type="submit" class="btn btn-primary">
           <?= $edit_t ? '💾 Save Changes' : '➕ Add Tournament' ?>
         </button>
-        <a href="/admin/tournaments.php" class="btn btn-outline">Cancel</a>
+        <a href="tournaments.php" class="btn btn-outline">Cancel</a>
       </div>
     </form>
     <?php endif; ?>
@@ -177,7 +177,7 @@ if ($action === 'edit' && $edit_id) {
     <h3>Delete Tournament</h3>
     <p id="delete-modal-msg">Are you sure?</p>
     <div class="modal-actions">
-      <form method="POST" action="/api/delete_tournament.php">
+      <form method="POST" action="../api/delete_tournament.php">
         <input type="hidden" name="id" id="delete-t-id">
         <button type="submit" class="btn btn-danger">Yes, Delete</button>
       </form>
@@ -187,8 +187,8 @@ if ($action === 'edit' && $edit_id) {
 </div>
 
 <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/admin.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/admin.js"></script>
 <script>
 // Init Quill
 const quill = new Quill('#quill-editor', {

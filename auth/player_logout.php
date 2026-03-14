@@ -5,4 +5,4 @@ session_start();
 unset($_SESSION['player_id']);
 unset($_SESSION['player_name']);
 
-redirect('/');
+redirect('../index.php');

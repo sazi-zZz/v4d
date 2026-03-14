@@ -16,7 +16,7 @@ if ($action === 'edit' && $edit_id) {
   $s->execute([$edit_id]);
   $edit_player = $s->fetch();
   if (!$edit_player) {
-    redirect('/admin/players.php');
+    redirect('players.php');
   }
 }
 ?>
@@ -27,9 +27,9 @@ if ($action === 'edit' && $edit_id) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Players — v4d Admin</title>
-  <link rel="icon" type="image/png" href="/css/img/v4d.png">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="icon" type="image/png" href="../css/img/v4d.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
 </head>
 
 <body class="bg-grid">
@@ -47,7 +47,7 @@ if ($action === 'edit' && $edit_id) {
         <a href="?action=add" class="btn btn-primary btn-sm">➕ Add Player</a>
         <?php
 else: ?>
-        <a href="/admin/players.php" class="btn btn-outline btn-sm">← Back</a>
+        <a href="players.php" class="btn btn-outline btn-sm">← Back</a>
         <?php
 endif; ?>
       </div>
@@ -85,7 +85,7 @@ endif; ?>
             <tr>
               <td class="admin-player-cell">
                 <?php if ($p['profile_pic']): ?>
-                <img src="/uploads/profiles/<?= sanitize($p['profile_pic'])?>" class="admin-avatar">
+                <img src="../uploads/profiles/<?= sanitize($p['profile_pic'])?>" class="admin-avatar">
                 <?php
       else: ?>
                 <span class="admin-avatar-ph">🎮</span>
@@ -124,7 +124,7 @@ endif; ?>
       <?php
 else: ?>
       <!-- Add / Edit Form -->
-      <form class="admin-form" method="POST" action="/api/save_player.php" enctype="multipart/form-data">
+      <form class="admin-form" method="POST" action="../api/save_player.php" enctype="multipart/form-data">
         <?php if ($edit_player): ?>
         <input type="hidden" name="id" value="<?= $edit_player['id']?>">
         <?php
@@ -212,7 +212,7 @@ else: ?>
           <div class="form-group">
             <label class="form-label">Profile Picture</label>
             <?php if (!empty($edit_player['profile_pic'])): ?>
-            <img src="/uploads/profiles/<?= sanitize($edit_player['profile_pic'])?>" class="upload-preview-img"
+            <img src="../uploads/profiles/<?= sanitize($edit_player['profile_pic'])?>" class="upload-preview-img"
               id="profile-preview" alt="Current profile pic">
             <?php
   else: ?>
@@ -226,7 +226,7 @@ else: ?>
           <div class="form-group">
             <label class="form-label">Cover Image (wide banner)</label>
             <?php if (!empty($edit_player['cover_image'])): ?>
-            <img src="/uploads/covers/<?= sanitize($edit_player['cover_image'])?>" class="upload-preview-cover"
+            <img src="../uploads/covers/<?= sanitize($edit_player['cover_image'])?>" class="upload-preview-cover"
               id="cover-preview" alt="Current cover">
             <?php
   else: ?>
@@ -261,7 +261,7 @@ else: ?>
           <button type="submit" class="btn btn-primary">
             <?= $edit_player ? '💾 Save Changes' : '➕ Add Player'?>
           </button>
-          <a href="/admin/players.php" class="btn btn-outline">Cancel</a>
+          <a href="players.php" class="btn btn-outline">Cancel</a>
         </div>
       </form>
       <?php
@@ -275,7 +275,7 @@ endif; ?>
       <h3>Delete Player</h3>
       <p id="delete-modal-msg">Are you sure?</p>
       <div class="modal-actions">
-        <form method="POST" action="/api/delete_player.php">
+        <form method="POST" action="../api/delete_player.php">
           <input type="hidden" name="id" id="delete-player-id">
           <button type="submit" class="btn btn-danger">Yes, Delete</button>
         </form>
@@ -284,8 +284,8 @@ endif; ?>
     </div>
   </div>
 
-  <script src="/js/main.js"></script>
-  <script src="/js/admin.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/admin.js"></script>
   <script>
     function confirmDelete(id, name) {
       document.getElementById('delete-player-id').value = id;

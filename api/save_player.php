@@ -4,7 +4,7 @@ require_once __DIR__ . '/../includes/functions.php';
 session_start();
 require_admin();
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') redirect('/admin/players.php');
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') redirect('../admin/players.php');
 
 $id         = (int)($_POST['id'] ?? 0);
 $name       = trim($_POST['name'] ?? '');
@@ -94,4 +94,4 @@ if ($id) {
     $_SESSION['flash'] = ['type'=>'success','msg'=>"Player \"$name\" added successfully!"];
 }
 
-redirect('/admin/players.php');
+redirect('../admin/players.php');

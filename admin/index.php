@@ -17,9 +17,9 @@ $top_player        = $pdo->query("SELECT name FROM players ORDER BY total_wins D
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard — v4d Esports</title>
-  <link rel="icon" type="image/png" href="/css/img/v4d.png">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="icon" type="image/png" href="../css/img/v4d.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body class="bg-grid">
 <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
@@ -61,16 +61,16 @@ $top_player        = $pdo->query("SELECT name FROM players ORDER BY total_wins D
 
     <!-- Quick links -->
     <div class="dash-quick-links">
-      <a href="/admin/players.php?action=add" class="dash-quick-card">
+      <a href="players.php?action=add" class="dash-quick-card">
         <span>➕</span> Add Player
       </a>
-      <a href="/admin/tournaments.php?action=add" class="dash-quick-card">
+      <a href="tournaments.php?action=add" class="dash-quick-card">
         <span>➕</span> Add Tournament
       </a>
-      <a href="/admin/stats.php" class="dash-quick-card">
+      <a href="stats.php" class="dash-quick-card">
         <span>✏️</span> Update Stats
       </a>
-      <a href="/" target="_blank" class="dash-quick-card">
+      <a href="../index.php" target="_blank" class="dash-quick-card">
         <span>🌐</span> View Site
       </a>
     </div>
@@ -78,6 +78,6 @@ $top_player        = $pdo->query("SELECT name FROM players ORDER BY total_wins D
   </main>
 </div>
 
-<script src="/js/main.js"></script>
+<script src="../js/main.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
   <!-- Unified Footer -->
   <footer class="site-footer">
     <div class="container">
-      <img src="/css/img/v4d.png" alt="v4d Esports" class="footer-logo">
+      <img src="css/img/v4d.png" alt="v4d Esports" class="footer-logo">
 
       <a href="https://discord.gg/Gqm7wYr7X" target="_blank" rel="noopener noreferrer" class="footer-discord-btn">
         <svg width="16" height="12" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -148,11 +148,11 @@
   </style>
 
   <!-- Shared JS -->
-  <script src="/js/main.js"></script>
+  <script src="js/main.js"></script>
 
   <!-- Page-specific scripts -->
   <?php if (isset($extra_js)): foreach ($extra_js as $js): ?>
-  <script src="/js/<?= $js ?>"></script>
+  <script src="js/<?= $js ?>"></script>
   <?php endforeach; endif; ?>
 
   <!-- Inline scripts -->

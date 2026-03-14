@@ -26,9 +26,9 @@ include __DIR__ . '/includes/header.php';
     <?php else: ?>
     <div class="grid-3">
       <?php foreach ($tournaments as $t): ?>
-      <a href="/tournament.php?id=<?= $t['id'] ?>" class="tournament-card" data-anim>
+      <a href="tournament.php?id=<?= $t['id'] ?>" class="tournament-card" data-anim>
         <?php if ($t['banner']): ?>
-          <img src="/uploads/banners/<?= sanitize($t['banner']) ?>" alt="<?= sanitize($t['name']) ?>" class="tournament-card-banner" loading="lazy">
+          <img src="uploads/banners/<?= sanitize($t['banner']) ?>" alt="<?= sanitize($t['name']) ?>" class="tournament-card-banner" loading="lazy">
         <?php else: ?>
           <div class="tournament-card-banner-placeholder">🏆</div>
         <?php endif; ?>

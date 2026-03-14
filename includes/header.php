@@ -12,14 +12,14 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
   <title><?= isset($page_title) ? sanitize($page_title) . ' — v4d Esports' : 'v4d Esports — PUBG Clan' ?></title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/css/img/v4d.png">
+  <link rel="icon" type="image/png" href="css/img/v4d.png">
 
   <!-- Global Styles -->
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 
   <!-- Page-specific styles -->
   <?php if (isset($extra_css)): foreach ($extra_css as $css): ?>
-  <link rel="stylesheet" href="/css/<?= $css ?>">
+  <link rel="stylesheet" href="css/<?= $css ?>">
   <?php endforeach; endif; ?>
 
   <!-- Head extras (e.g. Quill CSS) -->
@@ -33,20 +33,20 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
   <!-- Navigation -->
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
-      <a href="/" class="navbar-brand" aria-label="v4d Esports Home">
-        <img src="/css/img/v4d.png" alt="v4d Logo" class="navbar-logo">
+      <a href="index.php" class="navbar-brand" aria-label="v4d Esports Home">
+        <img src="css/img/v4d.png" alt="v4d Logo" class="navbar-logo">
         <span class="navbar-title">V4D</span>
       </a>
 
       <ul class="navbar-nav" id="navbar-nav">
-        <li><a href="/" class="<?= $current_page === 'index' ? 'active' : '' ?>">Home</a></li>
-        <li><a href="/leaderboard.php" class="<?= $current_page === 'leaderboard' ? 'active' : '' ?>">Leaderboard</a></li>
-        <li><a href="/tournaments.php" class="<?= $current_page === 'tournaments' ? 'active' : '' ?>">Tournaments</a></li>
+        <li><a href="index.php" class="<?= $current_page === 'index' ? 'active' : '' ?>">Home</a></li>
+        <li><a href="leaderboard.php" class="<?= $current_page === 'leaderboard' ? 'active' : '' ?>">Leaderboard</a></li>
+        <li><a href="tournaments.php" class="<?= $current_page === 'tournaments' ? 'active' : '' ?>">Tournaments</a></li>
         <?php if (is_player()): ?>
-          <li><a href="/player.php?id=<?= current_player_id() ?>" class="<?= ($current_page === 'player' && ($_GET['id'] ?? '') == current_player_id()) ? 'active' : '' ?>">My Profile</a></li>
-          <li><a href="/auth/player_logout.php" class="text-danger">Logout</a></li>
+          <li><a href="player.php?id=<?= current_player_id() ?>" class="<?= ($current_page === 'player' && ($_GET['id'] ?? '') == current_player_id()) ? 'active' : '' ?>">My Profile</a></li>
+          <li><a href="auth/player_logout.php" class="text-danger">Logout</a></li>
         <?php else: ?>
-          <li><a href="/auth/player_login.php" class="<?= $current_page === 'player_login' ? 'active' : '' ?>">Login</a></li>
+          <li><a href="auth/player_login.php" class="<?= $current_page === 'player_login' ? 'active' : '' ?>">Login</a></li>
         <?php endif; ?>
       </ul>
 

@@ -3,7 +3,7 @@ require_once __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../includes/functions.php';
 session_start();
 
-if (is_admin()) redirect('/admin/index.php');
+if (is_admin()) redirect('index.php');
 
 $error = '';
 
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($user && password_verify($password, $user['password_hash'])) {
             $_SESSION['admin_id']   = $user['id'];
             $_SESSION['admin_user'] = $user['username'];
-            redirect('/admin/index.php');
+            redirect('index.php');
         } else {
             $error = 'Invalid username or password.';
         }
@@ -34,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Login — v4d Esports</title>
-  <link rel="icon" type="image/png" href="/css/img/v4d.png">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="icon" type="image/png" href="../css/img/v4d.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
   <style>
     body { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
     .login-wrap { width: 100%; max-width: 400px; padding: 24px; }
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <div class="login-wrap">
     <div class="login-card">
-      <img src="/css/img/v4d.png" alt="v4d Logo" class="login-logo">
+      <img src="../css/img/v4d.png" alt="v4d Logo" class="login-logo">
       <h1 class="login-title">Admin Panel</h1>
       <p class="login-sub">v4d Esports Clan Management</p>
 
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
 
       <p style="text-align:center; margin-top:20px; font-size:0.8rem; color:var(--color-muted);">
-        <a href="/" style="color:var(--color-primary);">← Back to site</a>
+        <a href="../index.php" style="color:var(--color-primary);">← Back to site</a>
       </p>
     </div>
   </div>

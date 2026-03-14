@@ -18,16 +18,16 @@ include __DIR__ . '/includes/header.php';
      ============================================================ -->
 <section class="hero" aria-label="Hero">
   <div class="hero-bg">
-    <img src="/css/img/v4d.jpeg" alt="" class="hero-bg-img" aria-hidden="true">
+    <img src="css/img/v4d.jpeg" alt="" class="hero-bg-img" aria-hidden="true">
     <div class="hero-overlay"></div>
   </div>
   <div class="hero-content container">
-    <img src="/css/img/v4d.png" alt="v4d Esports Logo" class="hero-logo" data-anim>
+    <img src="css/img/v4d.png" alt="v4d Esports Logo" class="hero-logo" data-anim>
     <h1 class="hero-title" data-anim>Vanguard 4 Dominance</h1>
     <p class="hero-sub" data-anim>Unleash the vanguards, siege dominance</p>
     <div class="hero-actions" data-anim>
-      <a href="/leaderboard.php" class="btn btn-primary">⚡ Leaderboard</a>
-      <a href="/tournaments.php" class="btn btn-outline">🏆 Tournaments</a>
+      <a href="leaderboard.php" class="btn btn-primary">⚡ Leaderboard</a>
+      <a href="tournaments.php" class="btn btn-outline">🏆 Tournaments</a>
     </div>
     <div class="hero-stats" data-anim>
       <div class="hero-stat">
@@ -70,11 +70,11 @@ $total_wins = $pdo->query("SELECT COALESCE(SUM(total_wins),0) FROM players")->fe
     <div class="section-divider"></div>
     <div class="grid-3">
       <?php foreach ($top3 as $i => $player): ?>
-      <a href="/player.php?id=<?= $player['id']?>" class="player-card"
+      <a href="player.php?id=<?= $player['id']?>" class="player-card"
         style="background: <?= sanitize($player['card_color'])?>; --border-color: <?= sanitize($player['border_color'])?>; --text-color: <?= sanitize($player['text_color'])?>;"
         data-anim>
         <?php if ($player['cover_image']): ?>
-        <img src="/uploads/covers/<?= sanitize($player['cover_image'])?>" alt="" class="player-card-cover"
+        <img src="uploads/covers/<?= sanitize($player['cover_image'])?>" alt="" class="player-card-cover"
           loading="lazy">
         <?php
     else: ?>
@@ -85,7 +85,7 @@ $total_wins = $pdo->query("SELECT COALESCE(SUM(total_wins),0) FROM players")->fe
           <div class="d-flex align-center gap-2">
             <div class="player-card-avatar-wrapper">
               <?php if ($player['profile_pic']): ?>
-              <img src="/uploads/profiles/<?= sanitize($player['profile_pic'])?>"
+              <img src="uploads/profiles/<?= sanitize($player['profile_pic'])?>"
                 alt="<?= sanitize($player['name'])?>" class="player-card-avatar">
               <?php
     else: ?>
@@ -132,7 +132,7 @@ $total_wins = $pdo->query("SELECT COALESCE(SUM(total_wins),0) FROM players")->fe
   endforeach; ?>
     </div>
     <div class="text-center mt-3">
-      <a href="/leaderboard.php" class="btn btn-outline">View Full Leaderboard →</a>
+      <a href="leaderboard.php" class="btn btn-outline">View Full Leaderboard →</a>
     </div>
   </div>
 </section>

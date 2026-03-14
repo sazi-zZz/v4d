@@ -4,7 +4,7 @@ require_once __DIR__ . '/../includes/functions.php';
 session_start();
 require_admin();
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') redirect('/admin/tournaments.php');
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') redirect('../admin/tournaments.php');
 
 $id          = (int)($_POST['id'] ?? 0);
 $name        = trim($_POST['name'] ?? '');
@@ -58,4 +58,4 @@ if (!empty($_POST['p_wins'])) {
     }
 }
 
-redirect('/admin/tournaments.php');
+redirect('../admin/tournaments.php');
