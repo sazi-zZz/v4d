@@ -1,13 +1,13 @@
 <?php
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'v4d');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+// define('DB_HOST', 'localhost');
+// define('DB_NAME', 'v4d');
+// define('DB_USER', 'root');
+// define('DB_PASS', '');
 
-// define('DB_HOST', 'sql102.infinityfree.com');
-// define('DB_NAME', 'if0_41380504_v4d');
-// define('DB_USER', 'if0_41380504');
-// define('DB_PASS', 'dGWUN9ZJWnZNhBA');
+define('DB_HOST', 'sql102.infinityfree.com');
+define('DB_NAME', 'if0_41380504_v4d');
+define('DB_USER', 'if0_41380504');
+define('DB_PASS', 'dGWUN9ZJWnZNhBA');
 
 try {
     $pdo = new PDO(
