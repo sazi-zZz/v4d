@@ -4,7 +4,7 @@ require_once __DIR__ . '/../includes/functions.php';
 session_start();
 require_admin();
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') redirect('/v4d/admin/tournaments.php');
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') redirect('/admin/tournaments.php');
 
 $id          = (int)($_POST['id'] ?? 0);
 $name        = trim($_POST['name'] ?? '');
@@ -12,7 +12,7 @@ $description = $_POST['description'] ?? ''; // trusted admin HTML from Quill
 
 if (!$name) {
     $_SESSION['flash'] = ['type'=>'error','msg'=>'Tournament name is required.'];
-    redirect('/v4d/admin/tournaments.php?action=' . ($id ? 'edit&id='.$id : 'add'));
+    redirect('/admin/tournaments.php?action=' . ($id ? 'edit&id='.$id : 'add'));
 }
 
 // Handle banner upload
@@ -58,4 +58,4 @@ if (!empty($_POST['p_wins'])) {
     }
 }
 
-redirect('/v4d/admin/tournaments.php');
+redirect('/admin/tournaments.php');

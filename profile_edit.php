@@ -11,7 +11,7 @@ $stmt->execute([$player_id]);
 $player = $stmt->fetch();
 
 if (!$player) {
-    redirect('/v4d/auth/player_logout.php');
+    redirect('/auth/player_logout.php');
 }
 
 $page_title = 'Edit Profile';
@@ -65,7 +65,7 @@ include __DIR__ . '/includes/header.php';
             </div>
             <?php if ($player['profile_pic']): ?>
             <div class="preview-box">
-              <img src="/v4d/uploads/profiles/<?= sanitize($player['profile_pic']) ?>" alt="Current Profile">
+              <img src="/uploads/profiles/<?= sanitize($player['profile_pic']) ?>" alt="Current Profile">
             </div>
             <?php endif; ?>
           </div>
@@ -77,7 +77,7 @@ include __DIR__ . '/includes/header.php';
             </div>
             <?php if ($player['cover_image']): ?>
             <div class="preview-box">
-              <img src="/v4d/uploads/covers/<?= sanitize($player['cover_image']) ?>" alt="Current Cover">
+              <img src="/uploads/covers/<?= sanitize($player['cover_image']) ?>" alt="Current Cover">
             </div>
             <?php endif; ?>
           </div>
@@ -128,7 +128,7 @@ include __DIR__ . '/includes/header.php';
       </div>
 
       <div style="text-align:right;">
-        <a href="/v4d/player.php?id=<?= $player['id'] ?>" class="btn btn-outline" style="margin-right: 12px;">Cancel</a>
+        <a href="/player.php?id=<?= $player['id'] ?>" class="btn btn-outline" style="margin-right: 12px;">Cancel</a>
         <button type="submit" class="btn btn-primary" id="saveBtn">Save Changes</button>
       </div>
 
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const fd = new FormData(form);
-      const res = await fetch('/v4d/api/save_profile_self.php', {
+      const res = await fetch('/api/save_profile_self.php', {
         method: 'POST',
         body: fd
       });
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (data.success) {
         setTimeout(() => {
-          window.location.href = '/v4d/player.php?id=<?= $player['id'] ?>';
+          window.location.href = '/player.php?id=<?= $player['id'] ?>';
         }, 1000);
       }
     } catch(err) {

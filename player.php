@@ -3,13 +3,13 @@ require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/functions.php';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-if (!$id) { header('Location: /v4d/leaderboard.php'); exit; }
+if (!$id) { header('Location: /leaderboard.php'); exit; }
 
 $player = $pdo->prepare("SELECT * FROM players WHERE id = ?");
 $player->execute([$id]);
 $player = $player->fetch();
 
-if (!$player) { header('Location: /v4d/leaderboard.php'); exit; }
+if (!$player) { header('Location: /leaderboard.php'); exit; }
 
 // Global rank
 $rank_result = $pdo->prepare(
@@ -41,7 +41,7 @@ include __DIR__ . '/includes/header.php';
   <!-- Cover -->
   <div class="profile-cover">
     <?php if ($player['cover_image']): ?>
-      <img src="/v4d/uploads/covers/<?= sanitize($player['cover_image']) ?>" alt="" class="profile-cover-img">
+      <img src="/uploads/covers/<?= sanitize($player['cover_image']) ?>" alt="" class="profile-cover-img">
     <?php else: ?>
       <div class="profile-cover-placeholder"></div>
     <?php endif; ?>
@@ -51,7 +51,7 @@ include __DIR__ . '/includes/header.php';
   <div class="container profile-info-bar">
     <div class="profile-avatar-area">
       <?php if ($player['profile_pic']): ?>
-        <img src="/v4d/uploads/profiles/<?= sanitize($player['profile_pic']) ?>"
+        <img src="/uploads/profiles/<?= sanitize($player['profile_pic']) ?>"
              alt="<?= sanitize($player['name']) ?>"
              class="profile-avatar"
              style="border-color: <?= sanitize($player['border_color']) ?>; box-shadow: 0 0 24px <?= sanitize($player['border_color']) ?>66">
@@ -71,9 +71,9 @@ include __DIR__ . '/includes/header.php';
     </div>
     <div style="display: flex; gap: 8px;">
       <?php if (is_player() && current_player_id() === $player['id']): ?>
-        <a href="/v4d/profile_edit.php" class="btn btn-primary btn-sm">Edit Profile ✏️</a>
+        <a href="/profile_edit.php" class="btn btn-primary btn-sm">Edit Profile ✏️</a>
       <?php endif; ?>
-      <a href="/v4d/leaderboard.php" class="btn btn-outline btn-sm">← Back</a>
+      <a href="/leaderboard.php" class="btn btn-outline btn-sm">← Back</a>
     </div>
   </div>
 </div>
@@ -144,9 +144,9 @@ include __DIR__ . '/includes/header.php';
           <div class="section-divider"></div>
           <div class="profile-t-list">
             <?php foreach ($t_list as $t): ?>
-            <a href="/v4d/tournament.php?id=<?= $t['id'] ?>" class="profile-t-row glass-card">
+            <a href="/tournament.php?id=<?= $t['id'] ?>" class="profile-t-row glass-card">
               <?php if ($t['banner']): ?>
-                <img src="/v4d/uploads/banners/<?= sanitize($t['banner']) ?>" alt="" class="profile-t-thumb">
+                <img src="/uploads/banners/<?= sanitize($t['banner']) ?>" alt="" class="profile-t-thumb">
               <?php else: ?>
                 <div class="profile-t-thumb-ph">🏆</div>
               <?php endif; ?>

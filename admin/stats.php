@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     $_SESSION['flash'] = ['type'=>'success','msg'=>'Stats updated successfully!'];
-    redirect('/v4d/admin/stats.php');
+    redirect('/admin/stats.php');
 }
 ?>
 <!DOCTYPE html>
@@ -32,9 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Update Stats — v4d Admin</title>
-  <link rel="icon" type="image/png" href="/v4d/css/img/v4d.png">
-  <link rel="stylesheet" href="/v4d/css/style.css">
-  <link rel="stylesheet" href="/v4d/css/admin.css">
+  <link rel="icon" type="image/png" href="/css/img/v4d.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body class="bg-grid">
 <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
@@ -101,6 +101,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </main>
 </div>
 
-<script src="/v4d/js/main.js"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>

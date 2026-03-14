@@ -4,7 +4,7 @@ require_once __DIR__ . '/../includes/functions.php';
 session_start();
 require_admin();
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') redirect('/v4d/admin/players.php');
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') redirect('/admin/players.php');
 
 $id         = (int)($_POST['id'] ?? 0);
 $name       = trim($_POST['name'] ?? '');
@@ -20,17 +20,17 @@ $total_games  = max(0, (int)($_POST['total_games'] ?? 0));
 
 if (!$name) {
     $_SESSION['flash'] = ['type'=>'error','msg'=>'Player name is required.'];
-    redirect('/v4d/admin/players.php?action=' . ($id ? 'edit&id=' . $id : 'add'));
+    redirect('/admin/players.php?action=' . ($id ? 'edit&id=' . $id : 'add'));
 }
 
 if (!$username) {
     $_SESSION['flash'] = ['type'=>'error','msg'=>'Username is required.'];
-    redirect('/v4d/admin/players.php?action=' . ($id ? 'edit&id=' . $id : 'add'));
+    redirect('/admin/players.php?action=' . ($id ? 'edit&id=' . $id : 'add'));
 }
 
 if (!$password) {
     $_SESSION['flash'] = ['type'=>'error','msg'=>'Password is required.'];
-    redirect('/v4d/admin/players.php?action=' . ($id ? 'edit&id=' . $id : 'add'));
+    redirect('/admin/players.php?action=' . ($id ? 'edit&id=' . $id : 'add'));
 }
 
 if ($username) {
@@ -38,7 +38,7 @@ if ($username) {
     $u_check->execute([$username, $id]);
     if ($u_check->fetch()) {
         $_SESSION['flash'] = ['type'=>'error','msg'=>'Username is already taken.'];
-        redirect('/v4d/admin/players.php?action=' . ($id ? 'edit&id=' . $id : 'add'));
+        redirect('/admin/players.php?action=' . ($id ? 'edit&id=' . $id : 'add'));
     }
 }
 
@@ -94,4 +94,4 @@ if ($id) {
     $_SESSION['flash'] = ['type'=>'success','msg'=>"Player \"$name\" added successfully!"];
 }
 
-redirect('/v4d/admin/players.php');
+redirect('/admin/players.php');

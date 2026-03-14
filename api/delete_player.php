@@ -7,7 +7,7 @@ require_admin();
 $id = (int)($_POST['id'] ?? 0);
 if (!$id) {
     $_SESSION['flash'] = ['type'=>'error','msg'=>'Invalid player ID.'];
-    redirect('/v4d/admin/players.php');
+    redirect('/admin/players.php');
 }
 
 // Remove uploaded files
@@ -27,4 +27,4 @@ $stmt = $pdo->prepare("DELETE FROM players WHERE id = ?");
 $stmt->execute([$id]);
 
 $_SESSION['flash'] = ['type'=>'success','msg'=>'Player deleted.'];
-redirect('/v4d/admin/players.php');
+redirect('/admin/players.php');

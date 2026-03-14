@@ -66,7 +66,7 @@ function is_admin(): bool {
 
 function require_admin(): void {
     if (!is_admin()) {
-        redirect('/v4d/admin/login.php');
+        redirect('/admin/login.php');
     }
 }
 
@@ -80,6 +80,6 @@ function current_player_id(): ?int {
 
 function require_player(): void {
     if (!is_player()) {
-        redirect('/v4d/auth/player_login.php');
+        redirect('/auth/player_login.php');
     }
 }

@@ -3,13 +3,13 @@ require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/functions.php';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-if (!$id) { header('Location: /v4d/tournaments.php'); exit; }
+if (!$id) { header('Location: /tournaments.php'); exit; }
 
 $tournament = $pdo->prepare("SELECT * FROM tournaments WHERE id = ?");
 $tournament->execute([$id]);
 $tournament = $tournament->fetch();
 
-if (!$tournament) { header('Location: /v4d/tournaments.php'); exit; }
+if (!$tournament) { header('Location: /tournaments.php'); exit; }
 
 // Fetch participants for this tournament
 $participants = $pdo->prepare(
@@ -32,13 +32,13 @@ include __DIR__ . '/includes/header.php';
 <!-- Tournament Banner -->
 <div class="tournament-hero">
   <?php if ($tournament['banner']): ?>
-    <img src="/v4d/uploads/banners/<?= sanitize($tournament['banner']) ?>" alt="<?= sanitize($tournament['name']) ?>" class="tournament-hero-img">
+    <img src="/uploads/banners/<?= sanitize($tournament['banner']) ?>" alt="<?= sanitize($tournament['name']) ?>" class="tournament-hero-img">
   <?php else: ?>
     <div class="tournament-hero-placeholder"></div>
   <?php endif; ?>
   <div class="tournament-hero-overlay">
     <div class="container">
-      <a href="/v4d/tournaments.php" class="back-link">← Back to Tournaments</a>
+      <a href="/tournaments.php" class="back-link">← Back to Tournaments</a>
       <h1 class="tournament-hero-title"><?= sanitize($tournament['name']) ?></h1>
       <span class="tournament-hero-date"><?= date('F j, Y', strtotime($tournament['created_at'])) ?></span>
     </div>
@@ -73,11 +73,11 @@ include __DIR__ . '/includes/header.php';
         <?php else: ?>
         <div class="t-stats-grid">
           <?php foreach ($participants as $rank => $p): $r = $rank + 1; ?>
-          <a href="/v4d/player.php?id=<?= $p['id'] ?>" class="t-stat-card glass-card">
+          <a href="/player.php?id=<?= $p['id'] ?>" class="t-stat-card glass-card">
             <span class="rank-badge rank-<?= $r <= 3 ? $r : 'other' ?>">#<?= $r ?></span>
             <div class="t-stat-player">
               <?php if ($p['profile_pic']): ?>
-                <img src="/v4d/uploads/profiles/<?= sanitize($p['profile_pic']) ?>" alt="" class="t-stat-avatar" style="border-color:<?= sanitize($p['border_color']) ?>">
+                <img src="/uploads/profiles/<?= sanitize($p['profile_pic']) ?>" alt="" class="t-stat-avatar" style="border-color:<?= sanitize($p['border_color']) ?>">
               <?php else: ?>
                 <span class="t-stat-avatar-ph">🎮</span>
               <?php endif; ?>

@@ -45,13 +45,13 @@ include __DIR__ . '/includes/header.php';
       <div class="podium-spot podium-2nd" data-anim>
         <div class="podium-avatar-wrap">
           <?php if ($p2['profile_pic']): ?>
-            <img src="/v4d/uploads/profiles/<?= sanitize($p2['profile_pic']) ?>" alt="<?= sanitize($p2['name']) ?>" class="podium-avatar" style="border-color: <?= sanitize($p2['border_color']) ?>">
+            <img src="/uploads/profiles/<?= sanitize($p2['profile_pic']) ?>" alt="<?= sanitize($p2['name']) ?>" class="podium-avatar" style="border-color: <?= sanitize($p2['border_color']) ?>">
           <?php else: ?>
             <div class="podium-avatar-ph" style="border-color: <?= sanitize($p2['border_color']) ?>">🎮</div>
           <?php endif; ?>
           <span class="podium-medal silver">🥈</span>
         </div>
-        <a href="/v4d/player.php?id=<?= $p2['id'] ?>" class="podium-name <?= font_class($p2['font_style']) ?>"><?= sanitize($p2['name']) ?></a>
+        <a href="/player.php?id=<?= $p2['id'] ?>" class="podium-name <?= font_class($p2['font_style']) ?>"><?= sanitize($p2['name']) ?></a>
         <div class="podium-wins"><?= $p2['total_wins'] ?> <small>wins</small></div>
         <div class="podium-block podium-block-2"></div>
       </div>
@@ -62,13 +62,13 @@ include __DIR__ . '/includes/header.php';
         <div class="podium-crown">👑</div>
         <div class="podium-avatar-wrap">
           <?php if ($p1['profile_pic']): ?>
-            <img src="/v4d/uploads/profiles/<?= sanitize($p1['profile_pic']) ?>" alt="<?= sanitize($p1['name']) ?>" class="podium-avatar podium-avatar-lg" style="border-color: <?= sanitize($p1['border_color']) ?>">
+            <img src="/uploads/profiles/<?= sanitize($p1['profile_pic']) ?>" alt="<?= sanitize($p1['name']) ?>" class="podium-avatar podium-avatar-lg" style="border-color: <?= sanitize($p1['border_color']) ?>">
           <?php else: ?>
             <div class="podium-avatar-ph podium-avatar-lg" style="border-color: <?= sanitize($p1['border_color']) ?>">🎮</div>
           <?php endif; ?>
           <span class="podium-medal gold">🥇</span>
         </div>
-        <a href="/v4d/player.php?id=<?= $p1['id'] ?>" class="podium-name <?= font_class($p1['font_style']) ?>"><?= sanitize($p1['name']) ?></a>
+        <a href="/player.php?id=<?= $p1['id'] ?>" class="podium-name <?= font_class($p1['font_style']) ?>"><?= sanitize($p1['name']) ?></a>
         <div class="podium-wins"><?= $p1['total_wins'] ?> <small>wins</small></div>
         <div class="podium-block podium-block-1"></div>
       </div>
@@ -78,13 +78,13 @@ include __DIR__ . '/includes/header.php';
       <div class="podium-spot podium-3rd" data-anim>
         <div class="podium-avatar-wrap">
           <?php if ($p3['profile_pic']): ?>
-            <img src="/v4d/uploads/profiles/<?= sanitize($p3['profile_pic']) ?>" alt="<?= sanitize($p3['name']) ?>" class="podium-avatar" style="border-color: <?= sanitize($p3['border_color']) ?>">
+            <img src="/uploads/profiles/<?= sanitize($p3['profile_pic']) ?>" alt="<?= sanitize($p3['name']) ?>" class="podium-avatar" style="border-color: <?= sanitize($p3['border_color']) ?>">
           <?php else: ?>
             <div class="podium-avatar-ph" style="border-color: <?= sanitize($p3['border_color']) ?>">🎮</div>
           <?php endif; ?>
           <span class="podium-medal bronze">🥉</span>
         </div>
-        <a href="/v4d/player.php?id=<?= $p3['id'] ?>" class="podium-name <?= font_class($p3['font_style']) ?>"><?= sanitize($p3['name']) ?></a>
+        <a href="/player.php?id=<?= $p3['id'] ?>" class="podium-name <?= font_class($p3['font_style']) ?>"><?= sanitize($p3['name']) ?></a>
         <div class="podium-wins"><?= $p3['total_wins'] ?> <small>wins</small></div>
         <div class="podium-block podium-block-3"></div>
       </div>
@@ -126,13 +126,13 @@ include __DIR__ . '/includes/header.php';
         </thead>
         <tbody>
           <?php foreach ($players as $rank => $p): $r = $rank + 1; ?>
-          <tr class="lb-row <?= $r <= 3 ? 'lb-row-top' : '' ?>" onclick="window.location='/v4d/player.php?id=<?= $p['id'] ?>'" style="cursor:pointer;">
+          <tr class="lb-row <?= $r <= 3 ? 'lb-row-top' : '' ?>" onclick="window.location='/player.php?id=<?= $p['id'] ?>'" style="cursor:pointer;">
             <td>
               <span class="rank-badge rank-<?= $r <= 3 ? $r : 'other' ?>">#<?= $r ?></span>
             </td>
             <td class="lb-player-cell">
               <?php if ($p['profile_pic']): ?>
-                <img src="/v4d/uploads/profiles/<?= sanitize($p['profile_pic']) ?>" alt="" class="lb-avatar">
+                <img src="/uploads/profiles/<?= sanitize($p['profile_pic']) ?>" alt="" class="lb-avatar">
               <?php else: ?>
                 <span class="lb-avatar-ph">🎮</span>
               <?php endif; ?>
@@ -157,13 +157,13 @@ include __DIR__ . '/includes/header.php';
     <!-- Mobile card list (phones only) -->
     <div class="lb-mobile-list mt-4 lb-mobile">
       <?php foreach ($players as $rank => $p): $r = $rank + 1; ?>
-      <a href="/v4d/player.php?id=<?= $p['id'] ?>" class="lb-mobile-card <?= $r <= 3 ? 'lb-mobile-card-top' : '' ?>">
+      <a href="/player.php?id=<?= $p['id'] ?>" class="lb-mobile-card <?= $r <= 3 ? 'lb-mobile-card-top' : '' ?>">
 
         <!-- Left: rank + avatar -->
         <div class="lb-mc-left">
           <span class="rank-badge rank-<?= $r <= 3 ? $r : 'other' ?>">#<?= $r ?></span>
           <?php if ($p['profile_pic']): ?>
-            <img src="/v4d/uploads/profiles/<?= sanitize($p['profile_pic']) ?>" alt="" class="lb-mc-avatar" style="border-color:<?= sanitize($p['border_color']) ?>">
+            <img src="/uploads/profiles/<?= sanitize($p['profile_pic']) ?>" alt="" class="lb-mc-avatar" style="border-color:<?= sanitize($p['border_color']) ?>">
           <?php else: ?>
             <div class="lb-mc-avatar lb-mc-avatar-ph" style="border-color:<?= sanitize($p['border_color']) ?>">🎮</div>
           <?php endif; ?>
