@@ -1,13 +1,19 @@
 <?php
-// define('DB_HOST', 'localhost');
-// define('DB_NAME', 'v4d');
-// define('DB_USER', 'root');
-// define('DB_PASS', '');
+$host_no_port = explode(':', $_SERVER['HTTP_HOST'] ?? '')[0];
+$is_local = in_array($host_no_port, ['localhost', '127.0.0.1']);
 
-define('DB_HOST', 'sql102.infinityfree.com');
-define('DB_NAME', 'if0_41380504_v4d');
-define('DB_USER', 'if0_41380504');
-define('DB_PASS', 'dGWUN9ZJWnZNhBA');
+if ($is_local) {
+    define('DB_HOST', 'localhost');
+    define('DB_NAME', 'v4d');
+    define('DB_USER', 'root');
+    define('DB_PASS', '');
+} else {
+    // Production (InfinityFree) Credentials
+    define('DB_HOST', 'sql102.infinityfree.com');
+    define('DB_NAME', 'if0_41380504_v4d');
+    define('DB_USER', 'if0_41380504');
+    define('DB_PASS', 'dGWUN9ZJWnZNhBA');
+}
 
 try {
     $pdo = new PDO(

@@ -55,6 +55,16 @@ function handle_upload(string $field_name, string $dest_dir, array $allowed_ext 
     return $filename;
 }
 
+function base_url(string $path = ''): string {
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+    $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+    $dir = str_replace('\\', '/', dirname(__DIR__));
+    $doc_root = rtrim(str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT'] ?? ''), '/');
+    
+    $base_path = str_replace($doc_root, '', $dir);
+    return $protocol . $host . $base_path . '/' . ltrim($path, '/');
+}
+
 function redirect(string $url): never {
     header('Location: ' . $url);
     exit;
@@ -66,7 +76,7 @@ function is_admin(): bool {
 
 function require_admin(): void {
     if (!is_admin()) {
-        redirect('/v4d/admin/login.php');
+        redirect(base_url('admin/login.php'));
     }
 }
 
@@ -80,6 +90,6 @@ function current_player_id(): ?int {
 
 function require_player(): void {
     if (!is_player()) {
-        redirect('/v4d/auth/player_login.php');
+        redirect(base_url('auth/player_login.php'));
     }
 }

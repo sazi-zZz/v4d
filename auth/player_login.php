@@ -4,7 +4,7 @@ require_once __DIR__ . '/../adding/functions.php';
 session_start();
 
 if (is_player()) {
-    redirect('/player.php?id=' . current_player_id());
+    redirect('../player.php?id=' . current_player_id());
 }
 
 $error = '';
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($player && password_verify($password, $player['password_hash'])) {
             $_SESSION['player_id'] = $player['id'];
             $_SESSION['player_name'] = $player['name'];
-            redirect('/player.php?id=' . $player['id']);
+            redirect('../player.php?id=' . $player['id']);
         } else {
             $error = 'Invalid username or password.';
         }

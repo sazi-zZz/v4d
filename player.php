@@ -3,13 +3,13 @@ require_once __DIR__ . '/adding/db.php';
 require_once __DIR__ . '/adding/functions.php';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-if (!$id) { header('Location: /leaderboard.php'); exit; }
+if (!$id) { redirect(base_url('leaderboard.php')); }
 
 $player = $pdo->prepare("SELECT * FROM players WHERE id = ?");
 $player->execute([$id]);
 $player = $player->fetch();
 
-if (!$player) { header('Location: /leaderboard.php'); exit; }
+if (!$player) { redirect(base_url('leaderboard.php')); }
 
 // Global rank
 $rank_result = $pdo->prepare(
