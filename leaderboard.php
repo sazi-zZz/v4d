@@ -126,7 +126,7 @@ include __DIR__ . '/adding/header.php';
         </thead>
         <tbody>
           <?php foreach ($players as $rank => $p): $r = $rank + 1; ?>
-          <tr class="lb-row <?= $r <= 3 ? 'lb-row-top' : '' ?>" onclick="window.location='/player.php?id=<?= $p['id'] ?>'" style="cursor:pointer;">
+          <tr class="lb-row <?= $r <= 3 ? 'lb-row-top' : '' ?>" onclick="window.location='player.php?id=<?= $p['id'] ?>'" style="cursor:pointer;">
             <td>
               <span class="rank-badge rank-<?= $r <= 3 ? $r : 'other' ?>">#<?= $r ?></span>
             </td>

@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (data.success) {
         setTimeout(() => {
-          window.location.href = '/player.php?id=<?= $player['id'] ?>';
+          window.location.href = 'player.php?id=<?= $player['id'] ?>';
         }, 1000);
       }
     } catch(err) {
