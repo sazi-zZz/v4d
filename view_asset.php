@@ -22,8 +22,8 @@ $dir_path    = __DIR__;
 $possible_paths = [
     realpath($dir_path . '/../uploads_v4d'),
     dirname($dir_path) . '/uploads_v4d',
-    realpath($dir_path . '/../../uploads_v4d'),
-    dirname(dirname($dir_path)) . '/uploads_v4d',
+    realpath($dir_path . '/uploads_v4d'),    // Inside current folder (htdocs)
+    $dir_path . '/uploads_v4d',               // Direct relative check
     // Absolute paths from root (typical InfinityFree/cPanel)
     dirname($server_path) . '/uploads_v4d',
     $server_path . '/../uploads_v4d',
