@@ -35,11 +35,16 @@ function updatePreview() {
     pixelated: 'font-pixelated',
     modern:    'font-modern',
     aesthetic: 'font-aesthetic',
+    bebas:     'font-bebas',
+    cinzel:    'font-cinzel',
+    marker:    'font-marker',
+    russo:     'font-russo',
+    creepster: 'font-creepster',
   };
 
   if (nameEl && font) {
     nameEl.className = nameEl.className
-      .replace(/font-(techy|pixelated|modern|aesthetic)/g, '')
+      .replace(/font-(techy|pixelated|modern|aesthetic|bebas|cinzel|marker|russo|creepster)/g, '')
       .trimEnd();
     const cls = fontMap[font.value];
     if (cls) nameEl.classList.add(cls, 'player-card-name');

@@ -10,6 +10,11 @@ function font_class(string $style): string {
         'pixelated' => 'font-pixelated',
         'modern'    => 'font-modern',
         'aesthetic' => 'font-aesthetic',
+        'bebas'     => 'font-bebas',
+        'cinzel'    => 'font-cinzel',
+        'marker'    => 'font-marker',
+        'russo'     => 'font-russo',
+        'creepster' => 'font-creepster',
     ];
     return $map[$style] ?? 'font-modern';
 }

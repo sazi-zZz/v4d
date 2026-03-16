@@ -15,11 +15,11 @@ $p = $pdo->prepare("SELECT profile_pic, cover_image FROM players WHERE id = ?");
 $p->execute([$id]);
 $player = $p->fetch();
 if ($player) {
-    if ($player['profile_pic'] && file_exists(__DIR__ . '/../uploads/profiles/' . $player['profile_pic'])) {
-        @unlink(__DIR__ . '/../uploads/profiles/' . $player['profile_pic']);
+    if ($player['profile_pic'] && file_exists(__DIR__ . '/../../uploads/profiles/' . $player['profile_pic'])) {
+        @unlink(__DIR__ . '/../../uploads/profiles/' . $player['profile_pic']);
     }
-    if ($player['cover_image'] && file_exists(__DIR__ . '/../uploads/covers/' . $player['cover_image'])) {
-        @unlink(__DIR__ . '/../uploads/covers/' . $player['cover_image']);
+    if ($player['cover_image'] && file_exists(__DIR__ . '/../../uploads/covers/' . $player['cover_image'])) {
+        @unlink(__DIR__ . '/../../uploads/covers/' . $player['cover_image']);
     }
 }
 

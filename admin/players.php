@@ -85,7 +85,7 @@ endif; ?>
             <tr>
               <td class="admin-player-cell">
                 <?php if ($p['profile_pic']): ?>
-                <img src="../uploads/profiles/<?= sanitize($p['profile_pic'])?>" class="admin-avatar">
+                <img src="../../uploads/profiles/<?= sanitize($p['profile_pic'])?>" class="admin-avatar">
                 <?php
       else: ?>
                 <span class="admin-avatar-ph">🎮</span>
@@ -153,7 +153,17 @@ else: ?>
             <label class="form-label" for="font_style">Name Font Style *</label>
             <select id="font_style" name="font_style" class="form-control" onchange="updatePreview()">
               <?php
-  $fonts = ['modern' => 'Modern Stylish', 'techy' => 'Techy', 'pixelated' => 'Pixelated', 'aesthetic' => 'Aesthetic'];
+  $fonts = [
+    'modern' => 'Modern Stylish', 
+    'techy' => 'Techy', 
+    'pixelated' => 'Pixelated', 
+    'aesthetic' => 'Aesthetic',
+    'bebas' => 'Bebas (Impact)',
+    'cinzel' => 'Cinzel (Cinematic)',
+    'marker' => 'Marker (Handwritten)',
+    'russo' => 'Russo (Blocky)',
+    'creepster' => 'Creepster (Horror)'
+  ];
   $cur = $edit_player['font_style'] ?? 'modern';
   foreach ($fonts as $key => $label): ?>
               <option value="<?= $key?>" <?= $cur === $key ? 'selected' : '' ?>>
@@ -212,7 +222,7 @@ else: ?>
           <div class="form-group">
             <label class="form-label">Profile Picture</label>
             <?php if (!empty($edit_player['profile_pic'])): ?>
-            <img src="../uploads/profiles/<?= sanitize($edit_player['profile_pic'])?>" class="upload-preview-img"
+            <img src="../../uploads/profiles/<?= sanitize($edit_player['profile_pic'])?>" class="upload-preview-img"
               id="profile-preview" alt="Current profile pic">
             <?php
   else: ?>
@@ -226,7 +236,7 @@ else: ?>
           <div class="form-group">
             <label class="form-label">Cover Image (wide banner)</label>
             <?php if (!empty($edit_player['cover_image'])): ?>
-            <img src="../uploads/covers/<?= sanitize($edit_player['cover_image'])?>" class="upload-preview-cover"
+            <img src="../../uploads/covers/<?= sanitize($edit_player['cover_image'])?>" class="upload-preview-cover"
               id="cover-preview" alt="Current cover">
             <?php
   else: ?>

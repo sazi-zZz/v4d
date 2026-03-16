@@ -74,7 +74,7 @@ $total_wins = $pdo->query("SELECT COALESCE(SUM(total_wins),0) FROM players")->fe
         style="background: <?= sanitize($player['card_color'])?>; --border-color: <?= sanitize($player['border_color'])?>; --text-color: <?= sanitize($player['text_color'])?>;"
         data-anim>
         <?php if ($player['cover_image']): ?>
-        <img src="uploads/covers/<?= sanitize($player['cover_image'])?>" alt="" class="player-card-cover"
+        <img src="../uploads/covers/<?= sanitize($player['cover_image'])?>" alt="" class="player-card-cover"
           loading="lazy">
         <?php
     else: ?>
@@ -85,7 +85,7 @@ $total_wins = $pdo->query("SELECT COALESCE(SUM(total_wins),0) FROM players")->fe
           <div class="d-flex align-center gap-2">
             <div class="player-card-avatar-wrapper">
               <?php if ($player['profile_pic']): ?>
-              <img src="uploads/profiles/<?= sanitize($player['profile_pic'])?>"
+              <img src="../uploads/profiles/<?= sanitize($player['profile_pic'])?>"
                 alt="<?= sanitize($player['name'])?>" class="player-card-avatar">
               <?php
     else: ?>

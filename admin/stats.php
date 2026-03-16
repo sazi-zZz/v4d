@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </td>
               <td class="admin-player-cell player-name-cell">
                 <?php if ($p['profile_pic']): ?>
-                  <img src="../uploads/profiles/<?= sanitize($p['profile_pic']) ?>" class="admin-avatar">
+                  <img src="../../uploads/profiles/<?= sanitize($p['profile_pic']) ?>" class="admin-avatar">
                 <?php else: ?>
                   <span class="admin-avatar-ph">🎮</span>
                 <?php endif; ?>

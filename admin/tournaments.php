@@ -82,7 +82,7 @@ if ($action === 'edit' && $edit_id) {
           <tr>
             <td>
               <?php if ($t['banner']): ?>
-                <img src="../uploads/banners/<?= sanitize($t['banner']) ?>" class="admin-banner-thumb">
+                <img src="../../uploads/banners/<?= sanitize($t['banner']) ?>" class="admin-banner-thumb">
               <?php else: ?>
                 <span class="admin-banner-ph">🏆</span>
               <?php endif; ?>
@@ -116,7 +116,7 @@ if ($action === 'edit' && $edit_id) {
         <div class="form-group">
           <label class="form-label">Banner Image</label>
           <?php if (!empty($edit_t['banner'])): ?>
-            <img src="../uploads/banners/<?= sanitize($edit_t['banner']) ?>" class="upload-preview-cover" id="banner-preview">
+            <img src="../../uploads/banners/<?= sanitize($edit_t['banner']) ?>" class="upload-preview-cover" id="banner-preview">
           <?php else: ?>
             <div class="upload-preview-cover-ph" id="banner-preview">No banner set</div>
           <?php endif; ?>

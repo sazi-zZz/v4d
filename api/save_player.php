@@ -51,10 +51,10 @@ $profile_pic  = null;
 $cover_image  = null;
 
 if (!empty($_FILES['profile_pic']['name'])) {
-    $profile_pic = handle_upload('profile_pic', __DIR__ . '/../uploads/profiles/', ['jpg','jpeg','png','webp','gif'], 2 * 1024 * 1024);
+    $profile_pic = handle_upload('profile_pic', __DIR__ . '/../../uploads/profiles/', ['jpg','jpeg','png','webp','gif'], 2 * 1024 * 1024);
 }
 if (!empty($_FILES['cover_image']['name'])) {
-    $cover_image = handle_upload('cover_image', __DIR__ . '/../uploads/covers/', ['jpg','jpeg','png','webp','gif'], 5 * 1024 * 1024);
+    $cover_image = handle_upload('cover_image', __DIR__ . '/../../uploads/covers/', ['jpg','jpeg','png','webp','gif'], 5 * 1024 * 1024);
 }
 
 if ($id) {

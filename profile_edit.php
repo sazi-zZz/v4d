@@ -65,7 +65,7 @@ include __DIR__ . '/adding/header.php';
             </div>
             <?php if ($player['profile_pic']): ?>
             <div class="preview-box">
-              <img src="uploads/profiles/<?= sanitize($player['profile_pic']) ?>" alt="Current Profile">
+              <img src="../uploads/profiles/<?= sanitize($player['profile_pic']) ?>" alt="Current Profile">
             </div>
             <?php endif; ?>
           </div>
@@ -77,7 +77,7 @@ include __DIR__ . '/adding/header.php';
             </div>
             <?php if ($player['cover_image']): ?>
             <div class="preview-box">
-              <img src="uploads/covers/<?= sanitize($player['cover_image']) ?>" alt="Current Cover">
+              <img src="../uploads/covers/<?= sanitize($player['cover_image']) ?>" alt="Current Cover">
             </div>
             <?php endif; ?>
           </div>
@@ -118,6 +118,11 @@ include __DIR__ . '/adding/header.php';
               <option value="techy" <?= $player['font_style'] === 'techy' ? 'selected' : '' ?>>Techy / E-Sports</option>
               <option value="pixelated" <?= $player['font_style'] === 'pixelated' ? 'selected' : '' ?>>Pixelated / Retro</option>
               <option value="aesthetic" <?= $player['font_style'] === 'aesthetic' ? 'selected' : '' ?>>Aesthetic / Script</option>
+              <option value="bebas" <?= $player['font_style'] === 'bebas' ? 'selected' : '' ?>>Bebas (Impact)</option>
+              <option value="cinzel" <?= $player['font_style'] === 'cinzel' ? 'selected' : '' ?>>Cinzel (Cinematic)</option>
+              <option value="marker" <?= $player['font_style'] === 'marker' ? 'selected' : '' ?>>Marker (Handwritten)</option>
+              <option value="russo" <?= $player['font_style'] === 'russo' ? 'selected' : '' ?>>Russo (Blocky)</option>
+              <option value="creepster" <?= $player['font_style'] === 'creepster' ? 'selected' : '' ?>>Creepster (Horror)</option>
             </select>
           </div>
         </div>
@@ -160,7 +165,12 @@ document.addEventListener('DOMContentLoaded', () => {
         'techy': 'font-techy',
         'pixelated': 'font-pixelated',
         'modern': 'font-modern',
-        'aesthetic': 'font-aesthetic'
+        'aesthetic': 'font-aesthetic',
+        'bebas': 'font-bebas',
+        'cinzel': 'font-cinzel',
+        'marker': 'font-marker',
+        'russo': 'font-russo',
+        'creepster': 'font-creepster'
     };
     previewText.classList.add(map[fontStyleInput.value] || 'font-modern');
   };

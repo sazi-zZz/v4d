@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&family=Press+Start+2P&family=Rajdhani:wght@400;600;700&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&family=Press+Start+2P&family=Rajdhani:wght@400;600;700&family=Satisfy&family=Bebas+Neue&family=Cinzel:wght@400;700&family=Permanent+Marker&family=Russo+One&family=Creepster&display=swap');
 
 /* =====================================================
    CSS Design Tokens
@@ -20,6 +20,11 @@
   --font-pixelated:  'Press Start 2P', monospace;
   --font-modern:     'Rajdhani', sans-serif;
   --font-aesthetic:  'Satisfy', cursive;
+  --font-bebas:      'Bebas Neue', sans-serif;
+  --font-cinzel:     'Cinzel', serif;
+  --font-marker:     'Permanent Marker', cursive;
+  --font-russo:      'Russo One', sans-serif;
+  --font-creepster:  'Creepster', cursive;
 
   --radius:     12px;
   --radius-lg:  20px;
@@ -60,6 +65,11 @@ h1, h2, h3, h4, h5, h6 {
 .font-pixelated { font-family: var(--font-pixelated) !important; font-size: 0.75em; }
 .font-modern    { font-family: var(--font-modern) !important; font-weight: 700; }
 .font-aesthetic { font-family: var(--font-aesthetic) !important; }
+.font-bebas     { font-family: var(--font-bebas) !important; letter-spacing: 1px; font-size: 1.1em; }
+.font-cinzel    { font-family: var(--font-cinzel) !important; font-weight: 700; }
+.font-marker    { font-family: var(--font-marker) !important; }
+.font-russo     { font-family: var(--font-russo) !important; }
+.font-creepster { font-family: var(--font-creepster) !important; letter-spacing: 2px; }
 
 /* =====================================================
    Layout

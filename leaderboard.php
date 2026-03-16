@@ -45,7 +45,7 @@ include __DIR__ . '/adding/header.php';
       <div class="podium-spot podium-2nd" data-anim>
         <div class="podium-avatar-wrap">
           <?php if ($p2['profile_pic']): ?>
-            <img src="uploads/profiles/<?= sanitize($p2['profile_pic']) ?>" alt="<?= sanitize($p2['name']) ?>" class="podium-avatar" style="border-color: <?= sanitize($p2['border_color']) ?>">
+            <img src="../uploads/profiles/<?= sanitize($p2['profile_pic']) ?>" alt="<?= sanitize($p2['name']) ?>" class="podium-avatar" style="border-color: <?= sanitize($p2['border_color']) ?>">
           <?php else: ?>
             <div class="podium-avatar-ph" style="border-color: <?= sanitize($p2['border_color']) ?>">🎮</div>
           <?php endif; ?>
@@ -62,7 +62,7 @@ include __DIR__ . '/adding/header.php';
         <div class="podium-crown">👑</div>
         <div class="podium-avatar-wrap">
           <?php if ($p1['profile_pic']): ?>
-            <img src="uploads/profiles/<?= sanitize($p1['profile_pic']) ?>" alt="<?= sanitize($p1['name']) ?>" class="podium-avatar podium-avatar-lg" style="border-color: <?= sanitize($p1['border_color']) ?>">
+            <img src="../uploads/profiles/<?= sanitize($p1['profile_pic']) ?>" alt="<?= sanitize($p1['name']) ?>" class="podium-avatar podium-avatar-lg" style="border-color: <?= sanitize($p1['border_color']) ?>">
           <?php else: ?>
             <div class="podium-avatar-ph podium-avatar-lg" style="border-color: <?= sanitize($p1['border_color']) ?>">🎮</div>
           <?php endif; ?>
@@ -78,7 +78,7 @@ include __DIR__ . '/adding/header.php';
       <div class="podium-spot podium-3rd" data-anim>
         <div class="podium-avatar-wrap">
           <?php if ($p3['profile_pic']): ?>
-            <img src="uploads/profiles/<?= sanitize($p3['profile_pic']) ?>" alt="<?= sanitize($p3['name']) ?>" class="podium-avatar" style="border-color: <?= sanitize($p3['border_color']) ?>">
+            <img src="../uploads/profiles/<?= sanitize($p3['profile_pic']) ?>" alt="<?= sanitize($p3['name']) ?>" class="podium-avatar" style="border-color: <?= sanitize($p3['border_color']) ?>">
           <?php else: ?>
             <div class="podium-avatar-ph" style="border-color: <?= sanitize($p3['border_color']) ?>">🎮</div>
           <?php endif; ?>
@@ -132,7 +132,7 @@ include __DIR__ . '/adding/header.php';
             </td>
             <td class="lb-player-cell">
               <?php if ($p['profile_pic']): ?>
-                <img src="uploads/profiles/<?= sanitize($p['profile_pic']) ?>" alt="" class="lb-avatar">
+                <img src="../uploads/profiles/<?= sanitize($p['profile_pic']) ?>" alt="" class="lb-avatar">
               <?php else: ?>
                 <span class="lb-avatar-ph">🎮</span>
               <?php endif; ?>
@@ -163,7 +163,7 @@ include __DIR__ . '/adding/header.php';
         <div class="lb-mc-left">
           <span class="rank-badge rank-<?= $r <= 3 ? $r : 'other' ?>">#<?= $r ?></span>
           <?php if ($p['profile_pic']): ?>
-            <img src="uploads/profiles/<?= sanitize($p['profile_pic']) ?>" alt="" class="lb-mc-avatar" style="border-color:<?= sanitize($p['border_color']) ?>">
+            <img src="../uploads/profiles/<?= sanitize($p['profile_pic']) ?>" alt="" class="lb-mc-avatar" style="border-color:<?= sanitize($p['border_color']) ?>">
           <?php else: ?>
             <div class="lb-mc-avatar lb-mc-avatar-ph" style="border-color:<?= sanitize($p['border_color']) ?>">🎮</div>
           <?php endif; ?>
