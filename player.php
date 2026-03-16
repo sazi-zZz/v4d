@@ -41,7 +41,7 @@ include __DIR__ . '/adding/header.php';
   <!-- Cover -->
   <div class="profile-cover">
     <?php if ($player['cover_image']): ?>
-      <img src="../uploads/covers/<?= sanitize($player['cover_image']) ?>" alt="" class="profile-cover-img">
+      <img src="../uploads_v4d/covers/<?= sanitize($player['cover_image']) ?>" alt="" class="profile-cover-img">
     <?php else: ?>
       <div class="profile-cover-placeholder"></div>
     <?php endif; ?>
@@ -51,7 +51,7 @@ include __DIR__ . '/adding/header.php';
   <div class="container profile-info-bar">
     <div class="profile-avatar-area">
       <?php if ($player['profile_pic']): ?>
-        <img src="../uploads/profiles/<?= sanitize($player['profile_pic']) ?>"
+        <img src="../uploads_v4d/profiles/<?= sanitize($player['profile_pic']) ?>"
              alt="<?= sanitize($player['name']) ?>"
              class="profile-avatar"
              style="border-color: <?= sanitize($player['border_color']) ?>; box-shadow: 0 0 24px <?= sanitize($player['border_color']) ?>66">
@@ -146,7 +146,7 @@ include __DIR__ . '/adding/header.php';
             <?php foreach ($t_list as $t): ?>
             <a href="tournament.php?id=<?= $t['id'] ?>" class="profile-t-row glass-card">
               <?php if ($t['banner']): ?>
-                <img src="../uploads/banners/<?= sanitize($t['banner']) ?>" alt="" class="profile-t-thumb">
+                <img src="../uploads_v4d/banners/<?= sanitize($t['banner']) ?>" alt="" class="profile-t-thumb">
               <?php else: ?>
                 <div class="profile-t-thumb-ph">🏆</div>
               <?php endif; ?>

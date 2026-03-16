@@ -85,7 +85,7 @@ endif; ?>
             <tr>
               <td class="admin-player-cell">
                 <?php if ($p['profile_pic']): ?>
-                <img src="../../uploads/profiles/<?= sanitize($p['profile_pic'])?>" class="admin-avatar">
+                <img src="../../uploads_v4d/profiles/<?= sanitize($p['profile_pic'])?>" class="admin-avatar">
                 <?php
       else: ?>
                 <span class="admin-avatar-ph">🎮</span>
@@ -222,7 +222,7 @@ else: ?>
           <div class="form-group">
             <label class="form-label">Profile Picture</label>
             <?php if (!empty($edit_player['profile_pic'])): ?>
-            <img src="../../uploads/profiles/<?= sanitize($edit_player['profile_pic'])?>" class="upload-preview-img"
+            <img src="../../uploads_v4d/profiles/<?= sanitize($edit_player['profile_pic'])?>" class="upload-preview-img"
               id="profile-preview" alt="Current profile pic">
             <?php
   else: ?>
@@ -236,7 +236,7 @@ else: ?>
           <div class="form-group">
             <label class="form-label">Cover Image (wide banner)</label>
             <?php if (!empty($edit_player['cover_image'])): ?>
-            <img src="../../uploads/covers/<?= sanitize($edit_player['cover_image'])?>" class="upload-preview-cover"
+            <img src="../../uploads_v4d/covers/<?= sanitize($edit_player['cover_image'])?>" class="upload-preview-cover"
               id="cover-preview" alt="Current cover">
             <?php
   else: ?>

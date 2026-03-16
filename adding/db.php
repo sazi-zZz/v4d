@@ -7,12 +7,13 @@ if ($is_local) {
     define('DB_NAME', 'v4d');
     define('DB_USER', 'root');
     define('DB_PASS', '');
-} else {
-    // Production (InfinityFree) Credentials
-    define('DB_HOST', 'sql102.infinityfree.com');
-    define('DB_NAME', 'if0_41380504_v4d');
-    define('DB_USER', 'if0_41380504');
-    define('DB_PASS', 'dGWUN9ZJWnZNhBA');
+}
+else {
+    // Production (InfinityFree) - These will be replaced by GitHub Actions
+    define('DB_HOST', 'DB_HOST_PLACEHOLDER');
+    define('DB_NAME', 'DB_NAME_PLACEHOLDER');
+    define('DB_USER', 'DB_USER_PLACEHOLDER');
+    define('DB_PASS', 'DB_PASS_PLACEHOLDER');
 }
 
 try {
@@ -33,6 +34,7 @@ try {
     }
     catch (PDOException $e) {
     }
+
     try {
         $pdo->exec("ALTER TABLE players ADD COLUMN password_hash VARCHAR(255) DEFAULT NULL");
     }

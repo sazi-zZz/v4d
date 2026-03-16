@@ -32,7 +32,7 @@ include __DIR__ . '/adding/header.php';
 <!-- Tournament Banner -->
 <div class="tournament-hero">
   <?php if ($tournament['banner']): ?>
-    <img src="../uploads/banners/<?= sanitize($tournament['banner']) ?>" alt="<?= sanitize($tournament['name']) ?>" class="tournament-hero-img">
+    <img src="../uploads_v4d/banners/<?= sanitize($tournament['banner']) ?>" alt="<?= sanitize($tournament['name']) ?>" class="tournament-hero-img">
   <?php else: ?>
     <div class="tournament-hero-placeholder"></div>
   <?php endif; ?>
@@ -77,7 +77,7 @@ include __DIR__ . '/adding/header.php';
             <span class="rank-badge rank-<?= $r <= 3 ? $r : 'other' ?>">#<?= $r ?></span>
             <div class="t-stat-player">
               <?php if ($p['profile_pic']): ?>
-                <img src="../uploads/profiles/<?= sanitize($p['profile_pic']) ?>" alt="" class="t-stat-avatar" style="border-color:<?= sanitize($p['border_color']) ?>">
+                <img src="../uploads_v4d/profiles/<?= sanitize($p['profile_pic']) ?>" alt="" class="t-stat-avatar" style="border-color:<?= sanitize($p['border_color']) ?>">
               <?php else: ?>
                 <span class="t-stat-avatar-ph">🎮</span>
               <?php endif; ?>

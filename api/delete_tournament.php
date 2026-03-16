@@ -13,8 +13,8 @@ if (!$id) {
 $ex = $pdo->prepare("SELECT banner FROM tournaments WHERE id = ?");
 $ex->execute([$id]);
 $t = $ex->fetch();
-if ($t && $t['banner'] && file_exists(__DIR__ . '/../../uploads/banners/' . $t['banner'])) {
-    @unlink(__DIR__ . '/../../uploads/banners/' . $t['banner']);
+if ($t && $t['banner'] && file_exists(__DIR__ . '/../../uploads_v4d/banners/' . $t['banner'])) {
+    @unlink(__DIR__ . '/../../uploads_v4d/banners/' . $t['banner']);
 }
 
 $stmt = $pdo->prepare("DELETE FROM tournaments WHERE id = ?");

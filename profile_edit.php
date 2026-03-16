@@ -65,7 +65,7 @@ include __DIR__ . '/adding/header.php';
             </div>
             <?php if ($player['profile_pic']): ?>
             <div class="preview-box">
-              <img src="../uploads/profiles/<?= sanitize($player['profile_pic']) ?>" alt="Current Profile">
+              <img src="../uploads_v4d/profiles/<?= sanitize($player['profile_pic']) ?>" alt="Current Profile">
             </div>
             <?php endif; ?>
           </div>
@@ -77,7 +77,7 @@ include __DIR__ . '/adding/header.php';
             </div>
             <?php if ($player['cover_image']): ?>
             <div class="preview-box">
-              <img src="../uploads/covers/<?= sanitize($player['cover_image']) ?>" alt="Current Cover">
+              <img src="../uploads_v4d/covers/<?= sanitize($player['cover_image']) ?>" alt="Current Cover">
             </div>
             <?php endif; ?>
           </div>

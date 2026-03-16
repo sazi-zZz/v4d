@@ -49,10 +49,10 @@ if ($username) {
 $profile_pic = $current['profile_pic'];
 $cover_image = $current['cover_image'];
 
-$p_upload = handle_upload('profile_pic', __DIR__ . '/../../uploads/profiles/');
+$p_upload = handle_upload('profile_pic', __DIR__ . '/../../uploads_v4d/profiles/');
 if ($p_upload) $profile_pic = $p_upload;
 
-$c_upload = handle_upload('cover_image', __DIR__ . '/../../uploads/covers/');
+$c_upload = handle_upload('cover_image', __DIR__ . '/../../uploads_v4d/covers/');
 if ($c_upload) $cover_image = $c_upload;
 
 // Only update password if provided

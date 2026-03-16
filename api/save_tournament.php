@@ -18,7 +18,7 @@ if (!$name) {
 // Handle banner upload
 $banner = null;
 if (!empty($_FILES['banner']['name'])) {
-    $banner = handle_upload('banner', __DIR__ . '/../../uploads/banners/', ['jpg','jpeg','png','webp','gif'], 5 * 1024 * 1024);
+    $banner = handle_upload('banner', __DIR__ . '/../../uploads_v4d/banners/', ['jpg','jpeg','png','webp','gif'], 5 * 1024 * 1024);
 }
 
 if ($id) {
