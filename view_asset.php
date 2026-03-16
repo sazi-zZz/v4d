@@ -42,20 +42,31 @@ foreach ($possible_paths as $path) {
     }
 }
 
-// DEBUG MODE: Uncomment below to debug paths if images aren't showing
-/*
+// DEBUG MODE: ENABLED for troubleshooting
 if (isset($_GET['debug'])) {
-    echo "<h1>Debug Info</h1>";
-    echo "Requested: " . htmlspecialchars($requested_file) . "<br>";
-    echo "DOC ROOT: " . htmlspecialchars($server_path) . "<br>";
-    echo "Searching in:<pre>";
-    print_r($possible_paths);
+    $server_path = $_SERVER['DOCUMENT_ROOT'] ?? 'Not set';
+    $dir_path    = __DIR__;
+    echo "<h1>v4d Asset Debug</h1>";
+    echo "<b>Requested:</b> " . htmlspecialchars($requested_file) . "<br>";
+    echo "<b>Doc Root:</b> " . htmlspecialchars($server_path) . "<br>";
+    echo "<b>__DIR__:</b> " . htmlspecialchars($dir_path) . "<br>";
+    echo "<b>Searching in:</b><pre>";
+    foreach ($possible_paths as $p) {
+        $exists = ($p && file_exists($p)) ? "[EXISTS]" : "[MISSING]";
+        echo "$exists $p\n";
+    }
     echo "</pre>";
     if ($full_path) echo "<b>FOUND AT:</b> " . htmlspecialchars($full_path);
     else echo "<b>NOT FOUND ANYWHERE</b>";
+    
+    // Check folder permissions if found
+    if ($base_path && file_exists($base_path)) {
+        echo "<h2>Folder Info</h2>";
+        echo "Base folder permissions: " . substr(sprintf('%o', fileperms($base_path)), -4) . "<br>";
+        echo "Is Readable: " . (is_readable($base_path) ? "Yes" : "No") . "<br>";
+    }
     exit;
 }
-*/
 
 if ($full_path) {
     // 4. Detect MIME type
