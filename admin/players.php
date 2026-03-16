@@ -212,8 +212,21 @@ else: ?>
         <!-- Stats -->
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label" for="total_wins">Total Wins</label>
-            <input type="number" id="total_wins" name="total_wins" class="form-control" min="0"
+            <label class="form-label" for="duo_wins">Duo Wins</label>
+            <input type="number" id="duo_wins" name="duo_wins" class="form-control" min="0"
+              value="<?=(int)($edit_player['duo_wins'] ?? 0)?>">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="trio_wins">Trio Wins</label>
+            <input type="number" id="trio_wins" name="trio_wins" class="form-control" min="0"
+              value="<?=(int)($edit_player['trio_wins'] ?? 0)?>">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Total Wins (Calculated)</label>
+            <input type="text" class="form-control" readOnly disabled
               value="<?=(int)($edit_player['total_wins'] ?? 0)?>">
           </div>
           <div class="form-group">

@@ -13,22 +13,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST['update_pid'])) {
         // Single update
         $pid = (int)$_POST['update_pid'];
-        $wins  = (int)($_POST['wins'][$pid]  ?? 0);
+        $dwins = (int)($_POST['dwins'][$pid] ?? 0);
+        $twins = (int)($_POST['twins'][$pid] ?? 0);
+        $total_wins = $dwins + $twins;
         $games = (int)($_POST['games'][$pid] ?? 0);
         
-        $upd = $pdo->prepare("UPDATE players SET total_wins=?, total_games=? WHERE id=?");
-        $upd->execute([$wins, $games, $pid]);
+        $upd = $pdo->prepare("UPDATE players SET duo_wins=?, trio_wins=?, total_wins=?, total_games=? WHERE id=?");
+        $upd->execute([$dwins, $twins, $total_wins, $games, $pid]);
         $_SESSION['flash'] = ['type'=>'success','msg'=>"Player stats updated!"];
     } else {
         // Bulk update
         $ids = $_POST['pid'] ?? [];
         foreach ($ids as $pid) {
             $pid   = (int)$pid;
-            $wins  = (int)($_POST['wins'][$pid]  ?? 0);
+            $dwins = (int)($_POST['dwins'][$pid] ?? 0);
+            $twins = (int)($_POST['twins'][$pid] ?? 0);
+            $total_wins = $dwins + $twins;
             $games = (int)($_POST['games'][$pid] ?? 0);
             if ($pid) {
-                $upd = $pdo->prepare("UPDATE players SET total_wins=?, total_games=? WHERE id=?");
-                $upd->execute([$wins, $games, $pid]);
+                $upd = $pdo->prepare("UPDATE players SET duo_wins=?, trio_wins=?, total_wins=?, total_games=? WHERE id=?");
+                $upd->execute([$dwins, $twins, $total_wins, $games, $pid]);
             }
         }
         $_SESSION['flash'] = ['type'=>'success','msg'=>'All stats updated successfully!'];
@@ -78,7 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <tr>
               <th>#</th>
               <th>Player Name</th>
-              <th>Wins</th>
+              <th>Duo</th>
+              <th>Trio</th>
+              <th>Total</th>
               <th>Games Played</th>
               <th>Win Rate</th>
               <th>Action</th>
@@ -100,14 +106,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span class="<?= font_class($p['font_style']) ?>"><?= sanitize($p['name']) ?></span>
               </td>
               <td>
-                <input type="number" name="wins[<?= $p['id'] ?>]" value="<?= $p['total_wins'] ?>"
-                       class="form-control form-control-inline" min="0">
+                <input type="number" name="dwins[<?= $p['id'] ?>]" value="<?= $p['duo_wins'] ?>"
+                       class="form-control form-control-inline" min="0" style="width: 70px;">
               </td>
               <td>
-                <input type="number" name="games[<?= $p['id'] ?>]" value="<?= $p['total_games'] ?>"
-                       class="form-control form-control-inline" min="0">
+                <input type="number" name="twins[<?= $p['id'] ?>]" value="<?= $p['trio_wins'] ?>"
+                       class="form-control form-control-inline" min="0" style="width: 70px;">
               </td>
-              <td class="text-primary"><?= win_rate($p['total_wins'], $p['total_games']) ?></td>
+              <td class="text-primary"><?= $p['total_wins'] ?></td>
+              <td>
+                <input type="number" name="games[<?= $p['id'] ?>]" value="<?= $p['total_games'] ?>"
+                       class="form-control form-control-inline" min="0" style="width: 80px;">
+              </td>
+              <td class="text-muted"><?= win_rate($p['total_wins'], $p['total_games']) ?></td>
               <td><button type="submit" name="update_pid" value="<?= $p['id'] ?>" class="btn btn-outline btn-sm" style="width: 100%;">Update</button></td>
             </tr>
             <?php endforeach; ?>

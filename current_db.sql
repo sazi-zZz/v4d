@@ -59,6 +59,8 @@ CREATE TABLE `players` (
   `border_color` varchar(20) DEFAULT '#f5a623',
   `profile_pic` varchar(255) DEFAULT NULL,
   `cover_image` varchar(255) DEFAULT NULL,
+  `duo_wins` int(11) DEFAULT 0,
+  `trio_wins` int(11) DEFAULT 0,
   `total_wins` int(11) DEFAULT 0,
   `total_games` int(11) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
@@ -77,13 +79,6 @@ CREATE TABLE `tournaments` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `tournaments`
---
-
-INSERT INTO `tournaments` (`id`, `name`, `description`, `banner`, `created_at`) VALUES
-(1, 'Ramadan Cup', '<h1>Tournament Stats: Winner - SAZI</h1><h2><br></h2><h2><strong>Trio Wins:</strong></h2><p><br></p><p>SAZI  + catisfyig + lasthope = 3</p><p>theMaze + dokanWala + yousuf = 2</p><p>mime + lime + melon = 1</p><p><br></p><p><br></p><h2>Duo Wins:</h2><p><br></p><p>SAZI + lasthope = 4</p><p>mime + melon = 1</p><p>theMaze + yousuf = 1</p>', '69ae7530036b32.35262421.png', '2026-03-09 07:22:24');
-
 -- --------------------------------------------------------
 
 --
@@ -98,15 +93,6 @@ CREATE TABLE `tournament_stats` (
   `games` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `tournament_stats`
---
-
-INSERT INTO `tournament_stats` (`id`, `tournament_id`, `player_id`, `wins`, `games`) VALUES
-(1, 1, 1, 7, 7),
-(3, 1, 3, 4, 7),
-(4, 1, 2, 6, 7),
-(5, 1, 4, 7, 7);
 
 --
 -- Indexes for dumped tables

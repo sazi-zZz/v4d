@@ -111,6 +111,8 @@ include __DIR__ . '/adding/header.php';
         <colgroup>
           <col style="width:52px">
           <col>
+          <col style="width:50px">
+          <col style="width:50px">
           <col style="width:56px">
           <col style="width:56px">
           <col style="width:110px">
@@ -119,7 +121,9 @@ include __DIR__ . '/adding/header.php';
           <tr>
             <th>Rank</th>
             <th>Player</th>
-            <th>Wins</th>
+            <th>Duo</th>
+            <th>Trio</th>
+            <th>Total</th>
             <th>Games</th>
             <th>Win Rate</th>
           </tr>
@@ -140,6 +144,8 @@ include __DIR__ . '/adding/header.php';
                 <?= sanitize($p['name']) ?>
               </span>
             </td>
+            <td class="lb-wins text-muted" style="font-size: 0.9em;"><?= $p['duo_wins'] ?></td>
+            <td class="lb-wins text-muted" style="font-size: 0.9em;"><?= $p['trio_wins'] ?></td>
             <td class="lb-wins"><?= $p['total_wins'] ?></td>
             <td class="lb-games text-muted"><?= $p['total_games'] ?></td>
             <td>
@@ -175,7 +181,11 @@ include __DIR__ . '/adding/header.php';
             <?= sanitize($p['name']) ?>
           </div>
           <div class="lb-mc-stats">
-            <span class="lb-mc-stat"><span class="lb-mc-stat-val"><?= $p['total_wins'] ?></span><span class="lb-mc-stat-lbl">Wins</span></span>
+            <span class="lb-mc-stat"><span class="lb-mc-stat-val"><?= $p['total_wins'] ?></span><span class="lb-mc-stat-lbl">Total</span></span>
+            <span class="lb-mc-sep">·</span>
+            <span class="lb-mc-stat"><span class="lb-mc-stat-val"><?= $p['duo_wins'] ?></span><span class="lb-mc-stat-lbl">Duo</span></span>
+            <span class="lb-mc-sep">·</span>
+            <span class="lb-mc-stat"><span class="lb-mc-stat-val"><?= $p['trio_wins'] ?></span><span class="lb-mc-stat-lbl">Trio</span></span>
             <span class="lb-mc-sep">·</span>
             <span class="lb-mc-stat"><span class="lb-mc-stat-val"><?= $p['total_games'] ?></span><span class="lb-mc-stat-lbl">Games</span></span>
             <span class="lb-mc-sep">·</span>

@@ -88,6 +88,14 @@ include __DIR__ . '/adding/header.php';
         <div class="glass-card profile-stats-card" data-anim>
           <h3>📊 Statistics</h3>
           <div class="profile-stat-row">
+            <span>Duo Wins</span>
+            <strong class="text-primary"><?= $player['duo_wins'] ?></strong>
+          </div>
+          <div class="profile-stat-row">
+            <span>Trio Wins</span>
+            <strong class="text-primary"><?= $player['trio_wins'] ?></strong>
+          </div>
+          <div class="profile-stat-row">
             <span>Total Wins</span>
             <strong class="text-primary"><?= $player['total_wins'] ?></strong>
           </div>
