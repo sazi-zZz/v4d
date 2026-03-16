@@ -27,6 +27,9 @@ $username = trim($_POST['username'] ?? '') ?: null; // convert empty string to n
 $password = trim($_POST['password'] ?? '');
 $bio = trim($_POST['bio'] ?? '');
 $font_style = $_POST['font_style'] ?? 'modern';
+$valid_fonts = ['techy','pixelated','modern','aesthetic','bebas','cinzel','marker','russo','creepster','bangers','handwritten','gothic'];
+if (!in_array($font_style, $valid_fonts)) $font_style = 'modern';
+
 $card_color = $_POST['card_color'] ?? '#1a1a1a';
 $text_color = $_POST['text_color'] ?? '#ffffff';
 $border_color = $_POST['border_color'] ?? '#f5a623';

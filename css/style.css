@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&family=Press+Start+2P&family=Rajdhani:wght@400;600;700&family=Satisfy&family=Bebas+Neue&family=Cinzel:wght@400;700&family=Permanent+Marker&family=Russo+One&family=Creepster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&family=Press+Start+2P&family=Rajdhani:wght@400;600;700&family=Satisfy&family=Bebas+Neue&family=Cinzel:wght@400;700&family=Permanent+Marker&family=Russo+One&family=Creepster&family=Bangers&family=Shadows+Into+Light&family=UnifrakturMaguntia&display=swap');
 
 /* =====================================================
    CSS Design Tokens
@@ -25,6 +25,9 @@
   --font-marker:     'Permanent Marker', cursive;
   --font-russo:      'Russo One', sans-serif;
   --font-creepster:  'Creepster', cursive;
+  --font-bangers:    'Bangers', cursive;
+  --font-handwritten: 'Shadows Into Light', cursive;
+  --font-gothic:     'UnifrakturMaguntia', cursive;
 
   --radius:     12px;
   --radius-lg:  20px;
@@ -70,6 +73,9 @@ h1, h2, h3, h4, h5, h6 {
 .font-marker    { font-family: var(--font-marker) !important; }
 .font-russo     { font-family: var(--font-russo) !important; }
 .font-creepster { font-family: var(--font-creepster) !important; letter-spacing: 2px; }
+.font-bangers   { font-family: var(--font-bangers) !important; letter-spacing: 1px; }
+.font-handwritten { font-family: var(--font-handwritten) !important; }
+.font-gothic    { font-family: var(--font-gothic) !important; font-size: 1.2em; }
 
 /* =====================================================
    Layout

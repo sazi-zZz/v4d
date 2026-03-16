@@ -15,6 +15,9 @@ function font_class(string $style): string {
         'marker'    => 'font-marker',
         'russo'     => 'font-russo',
         'creepster' => 'font-creepster',
+        'bangers'   => 'font-bangers',
+        'handwritten' => 'font-handwritten',
+        'gothic'    => 'font-gothic',
     ];
     return $map[$style] ?? 'font-modern';
 }

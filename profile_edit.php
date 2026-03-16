@@ -123,6 +123,9 @@ include __DIR__ . '/adding/header.php';
               <option value="marker" <?= $player['font_style'] === 'marker' ? 'selected' : '' ?>>Marker (Handwritten)</option>
               <option value="russo" <?= $player['font_style'] === 'russo' ? 'selected' : '' ?>>Russo (Blocky)</option>
               <option value="creepster" <?= $player['font_style'] === 'creepster' ? 'selected' : '' ?>>Creepster (Horror)</option>
+              <option value="bangers" <?= $player['font_style'] === 'bangers' ? 'selected' : '' ?>>Bangers (Comic)</option>
+              <option value="handwritten" <?= $player['font_style'] === 'handwritten' ? 'selected' : '' ?>>Shadows (Casual)</option>
+              <option value="gothic" <?= $player['font_style'] === 'gothic' ? 'selected' : '' ?>>Gothic (Medieval)</option>
             </select>
           </div>
         </div>
@@ -170,7 +173,10 @@ document.addEventListener('DOMContentLoaded', () => {
         'cinzel': 'font-cinzel',
         'marker': 'font-marker',
         'russo': 'font-russo',
-        'creepster': 'font-creepster'
+        'creepster': 'font-creepster',
+        'bangers': 'font-bangers',
+        'handwritten': 'font-handwritten',
+        'gothic': 'font-gothic'
     };
     previewText.classList.add(map[fontStyleInput.value] || 'font-modern');
   };

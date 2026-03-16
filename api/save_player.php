@@ -43,7 +43,7 @@ if ($username) {
 }
 
 // Allowed fonts
-$valid_fonts = ['techy','pixelated','modern','aesthetic'];
+$valid_fonts = ['techy','pixelated','modern','aesthetic','bebas','cinzel','marker','russo','creepster','bangers','handwritten','gothic'];
 if (!in_array($font_style, $valid_fonts)) $font_style = 'modern';
 
 // Handle uploads

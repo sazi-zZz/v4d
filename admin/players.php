@@ -162,7 +162,10 @@ else: ?>
     'cinzel' => 'Cinzel (Cinematic)',
     'marker' => 'Marker (Handwritten)',
     'russo' => 'Russo (Blocky)',
-    'creepster' => 'Creepster (Horror)'
+    'creepster' => 'Creepster (Horror)',
+    'bangers' => 'Bangers (Comic)',
+    'handwritten' => 'Shadows (Casual)',
+    'gothic' => 'Gothic (Medieval)'
   ];
   $cur = $edit_player['font_style'] ?? 'modern';
   foreach ($fonts as $key => $label): ?>
