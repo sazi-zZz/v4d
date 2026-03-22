@@ -190,20 +190,68 @@ if ($action === 'edit' && $edit_id) {
 <script src="../js/main.js"></script>
 <script src="../js/admin.js"></script>
 <script>
+// Custom Image Handler for Quill (uploads to server instead of Base64)
+function selectLocalImage() {
+  const input = document.createElement('input');
+  input.setAttribute('type', 'file');
+  input.setAttribute('accept', 'image/*');
+  input.click();
+
+  input.onchange = () => {
+    const file = input.files[0];
+    if (/^image\//.test(file.type)) {
+      saveToServer(file);
+    } else {
+      console.warn('You can only upload images.');
+    }
+  };
+}
+
+function saveToServer(file) {
+  const fd = new FormData();
+  fd.append('image', file);
+
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', '../api/upload_tournament_image.php', true);
+  xhr.onload = () => {
+    if (xhr.status === 200) {
+      const resp = JSON.parse(xhr.responseText);
+      if (resp.url) {
+        insertToEditor(resp.url);
+      } else {
+        alert(resp.error || 'Upload failed');
+      }
+    } else {
+      alert('Network error during upload');
+    }
+  };
+  xhr.send(fd);
+}
+
+function insertToEditor(url) {
+  const range = quill.getSelection();
+  quill.insertEmbed(range.index, 'image', url);
+}
+
 // Init Quill
 const quill = new Quill('#quill-editor', {
   theme: 'snow',
   placeholder: 'Describe the tournament — rules, map, prizes, match schedule...',
   modules: {
-    toolbar: [
-      [{ header: [1, 2, 3, false] }],
-      ['bold', 'italic', 'underline', 'strike'],
-      [{ color: [] }, { background: [] }],
-      [{ list: 'ordered' }, { list: 'bullet' }],
-      [{ align: [] }],
-      ['link', 'image'],
-      ['clean']
-    ]
+    toolbar: {
+      container: [
+        [{ header: [1, 2, 3, false] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ color: [] }, { background: [] }],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        [{ align: [] }],
+        ['link', 'image'],
+        ['clean']
+      ],
+      handlers: {
+        'image': selectLocalImage
+      }
+    }
   }
 });
 
